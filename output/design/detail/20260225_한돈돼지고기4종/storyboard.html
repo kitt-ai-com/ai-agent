@@ -1,0 +1,2331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>상세페이지 스토리보드 — 국내산 한돈 냉장 돼지고기 4종 골라담기</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --charcoal-black: #1A1A1A;
+    --warm-cream: #FFF8F0;
+    --appetite-red: #E63312;
+    --gold-yellow: #D4A017;
+    --nature-green: #4A7C3F;
+    --text-dark: #333333;
+    --text-mid: #888888;
+    --text-light: #AAAAAA;
+    --border-soft: #E5E5E5;
+    --white: #FFFFFF;
+  }
+
+  body {
+    font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #e8e8e8;
+    color: var(--text-dark);
+    line-height: 1.7;
+  }
+
+  /* 헤더 */
+  .header {
+    background: var(--charcoal-black);
+    color: var(--white);
+    text-align: center;
+    padding: 16px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--appetite-red);
+  }
+  .header h1 { font-size: 15px; font-weight: 700; letter-spacing: 0.5px; }
+  .header .meta { font-size: 12px; color: var(--gold-yellow); margin-top: 4px; }
+
+  /* 모바일 컨테이너 */
+  .mobile-container {
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--white);
+    box-shadow: 0 0 40px rgba(0,0,0,0.15);
+  }
+
+  /* 존 구분 라벨 */
+  .zone-label {
+    background: var(--charcoal-black);
+    color: var(--white);
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  .zone-label .sub {
+    color: var(--gold-yellow);
+    font-size: 11px;
+    display: block;
+    margin-top: 2px;
+    font-weight: 400;
+  }
+  .zone-label .trigger {
+    color: var(--appetite-red);
+    font-size: 11px;
+    display: block;
+    margin-top: 2px;
+    font-weight: 400;
+  }
+
+  /* ─── ZONE 1 ─── */
+  .zone1 { position: relative; }
+  .hero-image {
+    width: 100%;
+    height: 640px;
+    background: linear-gradient(160deg, #0d0d0d 0%, #1a1a1a 30%, #2a1510 60%, #1a1a1a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 70%, rgba(230,51,18,0.1) 0%, transparent 60%);
+  }
+  .hero-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 280px;
+    background: linear-gradient(transparent, rgba(26,26,26,0.95));
+  }
+  .hero-placeholder {
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    font-size: 14px;
+    z-index: 1;
+  }
+  .hero-placeholder .icon { font-size: 48px; margin-bottom: 12px; display: block; }
+  .badge-row {
+    position: absolute;
+    top: 16px; left: 16px; right: 16px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+  }
+  .badge-pill {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .badge-green {
+    background: var(--nature-green);
+    color: var(--white);
+  }
+  .badge-red {
+    background: var(--appetite-red);
+    color: var(--white);
+  }
+  .badge-gold {
+    background: rgba(212,160,23,0.9);
+    color: var(--white);
+  }
+
+  .zone1-text {
+    padding: 28px 40px 32px;
+    background: var(--charcoal-black);
+    color: var(--warm-cream);
+  }
+  .hook-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .hook-badge {
+    background: rgba(255,248,240,0.1);
+    color: var(--warm-cream);
+    border: 1px solid rgba(255,248,240,0.2);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .main-headline {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--warm-cream);
+    margin-bottom: 12px;
+  }
+  .main-headline em {
+    font-style: normal;
+    color: var(--appetite-red);
+  }
+  .price-area {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .price-original {
+    font-size: 20px;
+    color: var(--text-light);
+    text-decoration: line-through;
+  }
+  .price-sale {
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--appetite-red);
+  }
+  .price-won {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--appetite-red);
+  }
+  .discount-chip {
+    display: inline-block;
+    background: var(--appetite-red);
+    color: var(--white);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-left: 8px;
+  }
+  .sub-copy {
+    font-size: 15px;
+    color: var(--text-mid);
+    margin-top: 12px;
+    line-height: 1.8;
+  }
+
+  /* 4종 미니 썸네일 */
+  .mini-thumbs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    padding: 0 40px 32px;
+    background: var(--charcoal-black);
+  }
+  .mini-thumb {
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 16px 8px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .mini-thumb .thumb-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .mini-thumb .thumb-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--warm-cream);
+  }
+  .mini-thumb .thumb-desc {
+    font-size: 11px;
+    color: var(--text-mid);
+    margin-top: 2px;
+  }
+
+  /* ─── ZONE 2 ─── */
+  .zone2 {
+    background: var(--warm-cream);
+    padding: 48px 40px;
+  }
+  .zone2 h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+    line-height: 1.4;
+  }
+  .checklist {
+    list-style: none;
+    margin-bottom: 32px;
+  }
+  .checklist li {
+    padding: 12px 0;
+    font-size: 15px;
+    line-height: 1.7;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .checklist li::before {
+    content: '☐';
+    margin-right: 10px;
+    color: var(--appetite-red);
+    font-size: 16px;
+  }
+  .loss-box {
+    background: var(--white);
+    border-left: 4px solid var(--appetite-red);
+    padding: 24px;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 32px;
+    font-size: 15px;
+    line-height: 1.9;
+  }
+  .loss-box strong { color: var(--appetite-red); }
+  .bridge-copy {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--appetite-red);
+    padding: 16px 0;
+    line-height: 1.6;
+  }
+
+  /* 4종 카드 그리드 */
+  .cuts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .cut-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .cut-card-img {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 16px;
+  }
+  .cut-card-img.samgyeop { background: linear-gradient(135deg, #8B4513 0%, #CD853F 100%); }
+  .cut-card-img.ogyeop { background: linear-gradient(135deg, #A0522D 0%, #DEB887 100%); }
+  .cut-card-img.moksal { background: linear-gradient(135deg, #BC8F8F 0%, #F4A460 100%); }
+  .cut-card-img.hangjeong { background: linear-gradient(135deg, #D2691E 0%, #FFDEAD 100%); }
+  .cut-card-text {
+    padding: 16px;
+  }
+  .cut-card-text h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text-dark);
+  }
+  .cut-card-text p {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.5;
+  }
+  .cut-tags {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .tag-grill {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    border: 1px solid var(--appetite-red);
+    color: var(--appetite-red);
+  }
+  .tag-boil {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    border: 1px solid var(--nature-green);
+    color: var(--nature-green);
+  }
+
+  /* 가격비교 바 */
+  .price-compare-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-top: 32px;
+  }
+  .compare-item {
+    text-align: center;
+    padding: 16px 8px;
+    border-radius: 12px;
+    font-size: 13px;
+  }
+  .compare-item.normal {
+    background: var(--white);
+    border: 1px solid var(--border-soft);
+  }
+  .compare-item.highlight {
+    background: var(--appetite-red);
+    color: var(--white);
+  }
+  .compare-item .compare-label { font-weight: 600; margin-bottom: 4px; }
+  .compare-item .compare-price { font-size: 20px; font-weight: 800; margin-top: 4px; }
+  .compare-item.highlight .compare-price { color: var(--white); }
+
+  /* ─── ZONE 3 ─── */
+  .zone3 {
+    background: var(--charcoal-black);
+    padding: 48px 40px;
+    color: var(--warm-cream);
+  }
+  .zone3 h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--warm-cream);
+    margin-bottom: 8px;
+  }
+  .zone3 .section-sub {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--warm-cream);
+    margin-bottom: 32px;
+    line-height: 1.3;
+  }
+
+  .sizzle-hero {
+    width: 100%;
+    height: 420px;
+    background: linear-gradient(135deg, #2a1510 0%, #4a1a0a 50%, #1a1a1a 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .sizzle-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 60%, rgba(255,120,50,0.15) 0%, transparent 60%);
+  }
+
+  .marbling-band {
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(90deg, #1a1a1a, #3d2b2b, #5a3a2a, #3d2b2b, #1a1a1a);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-yellow);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  .lifestyle-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  .lifestyle-card {
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .lifestyle-img {
+    height: 320px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 24px;
+    color: var(--white);
+    font-size: 14px;
+  }
+  .lifestyle-img.family {
+    background: linear-gradient(135deg, #2c1810 0%, #6b4423 50%, #8B6914 100%);
+  }
+  .lifestyle-img.camping {
+    background: linear-gradient(135deg, #1a3a1a 0%, #3a6b2a 50%, #5a8a3a 100%);
+  }
+  .lifestyle-img.friends {
+    background: linear-gradient(135deg, #1a1a2e 0%, #3a2a4a 50%, #5a3a6a 100%);
+  }
+  .lifestyle-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 24px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  }
+  .lifestyle-overlay p {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.5;
+  }
+  .lifestyle-overlay .scene-label {
+    font-size: 12px;
+    color: var(--gold-yellow);
+    margin-bottom: 4px;
+  }
+
+  .steps-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 32px;
+  }
+  .step-item {
+    text-align: center;
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 16px 8px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .step-item .step-icon { font-size: 28px; margin-bottom: 8px; display: block; }
+  .step-item .step-num {
+    display: inline-block;
+    width: 20px; height: 20px;
+    background: var(--appetite-red);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 20px;
+    margin-bottom: 4px;
+  }
+  .step-item .step-text {
+    font-size: 12px;
+    color: var(--warm-cream);
+    display: block;
+  }
+  .steps-cta {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--appetite-red);
+    margin-top: 20px;
+  }
+
+  /* BAB 섹션 */
+  .bab-section {
+    margin-bottom: 32px;
+  }
+  .bab-block {
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+  }
+  .bab-before {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .bab-after {
+    background: rgba(230,51,18,0.08);
+    border: 1px solid rgba(230,51,18,0.2);
+  }
+  .bab-bridge {
+    text-align: center;
+    background: rgba(212,160,23,0.1);
+    border: 1px solid rgba(212,160,23,0.3);
+  }
+  .bab-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .bab-before .bab-label { color: var(--text-mid); }
+  .bab-after .bab-label { color: var(--appetite-red); }
+  .bab-bridge .bab-label { color: var(--gold-yellow); }
+  .bab-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--warm-cream);
+  }
+
+  /* USP 비교표 */
+  .usp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+  }
+  .usp-table th {
+    background: rgba(255,255,255,0.1);
+    color: var(--warm-cream);
+    padding: 10px 12px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .usp-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    text-align: center;
+    color: var(--warm-cream);
+  }
+  .usp-table tr td:first-child {
+    font-weight: 600;
+    text-align: left;
+  }
+  .usp-table .hl {
+    color: var(--appetite-red);
+    font-weight: 700;
+  }
+
+  /* 부위 추천표 */
+  .cuts-recommend {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+  .cuts-recommend th {
+    background: rgba(212,160,23,0.2);
+    color: var(--gold-yellow);
+    padding: 12px;
+    font-weight: 700;
+    text-align: left;
+  }
+  .cuts-recommend td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: var(--warm-cream);
+  }
+  .cuts-recommend td:first-child { font-weight: 600; }
+
+  /* ─── ZONE 4 ─── */
+  .zone4 {
+    background: var(--warm-cream);
+    padding: 48px 40px;
+  }
+  .zone4 h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .zone4 .zone4-sub {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 32px;
+  }
+  .rating-block {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .rating-stars {
+    font-size: 32px;
+    color: var(--gold-yellow);
+    letter-spacing: 4px;
+  }
+  .rating-number {
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--text-dark);
+    margin-top: 4px;
+  }
+  .rating-sub {
+    font-size: 14px;
+    color: var(--text-mid);
+  }
+
+  .review-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .review-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .review-stars {
+    color: var(--gold-yellow);
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .review-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-dark);
+    font-style: italic;
+  }
+  .review-author {
+    font-size: 12px;
+    color: var(--text-mid);
+    margin-top: 8px;
+  }
+
+  /* 인증 뱃지 */
+  .cert-badges {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 32px 0;
+  }
+  .cert-badge {
+    text-align: center;
+    padding: 20px 12px;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .cert-icon { font-size: 28px; margin-bottom: 8px; display: block; }
+  .cert-title { font-size: 13px; font-weight: 700; color: var(--text-dark); }
+  .cert-desc { font-size: 11px; color: var(--text-mid); margin-top: 2px; }
+  .cert-badge.green .cert-icon { color: var(--nature-green); }
+  .cert-badge.blue .cert-icon { color: #3B82F6; }
+  .cert-badge.gold .cert-icon { color: var(--gold-yellow); }
+
+  /* 배송 과정 */
+  .delivery-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin: 32px 0;
+    flex-wrap: wrap;
+  }
+  .delivery-step {
+    text-align: center;
+    padding: 12px 8px;
+  }
+  .delivery-step .d-icon { font-size: 24px; display: block; margin-bottom: 4px; }
+  .delivery-step .d-label { font-size: 11px; color: var(--text-dark); font-weight: 600; }
+  .delivery-arrow { font-size: 18px; color: var(--text-light); }
+
+  /* 투명 정보 */
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+  .info-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .info-table td:first-child {
+    font-weight: 700;
+    color: var(--text-dark);
+    width: 35%;
+    background: rgba(74,124,63,0.05);
+  }
+
+  /* ─── ZONE 5 ─── */
+  .zone5 {
+    background: linear-gradient(180deg, var(--charcoal-black) 0%, #2D1A1A 100%);
+    padding: 48px 40px;
+    color: var(--warm-cream);
+    text-align: center;
+  }
+  .urgency-tag {
+    display: inline-block;
+    background: var(--appetite-red);
+    color: var(--white);
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+  .zone5 h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--warm-cream);
+    margin-bottom: 24px;
+    line-height: 1.4;
+  }
+  .zone5 .price-remind {
+    margin: 24px 0;
+  }
+  .zone5 .price-remind .pr-original {
+    font-size: 20px;
+    color: var(--text-light);
+    text-decoration: line-through;
+  }
+  .zone5 .price-remind .pr-sale {
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--appetite-red);
+    display: block;
+    margin-top: 4px;
+  }
+  .zone5 .price-remind .pr-save {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold-yellow);
+    display: block;
+    margin-top: 4px;
+  }
+
+  .loss-framing {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--warm-cream);
+    margin: 24px 0;
+    padding: 20px;
+    border: 1px solid rgba(230,51,18,0.3);
+    border-radius: 12px;
+    background: rgba(230,51,18,0.05);
+  }
+
+  .progress-bar-wrap {
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    height: 28px;
+    position: relative;
+    margin: 24px 0;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    background: linear-gradient(90deg, var(--appetite-red), #ff5533);
+    height: 100%;
+    width: 65%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+  }
+  .progress-text {
+    font-size: 12px;
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .compare-table-z5 {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+    text-align: left;
+  }
+  .compare-table-z5 th {
+    background: rgba(255,255,255,0.1);
+    color: var(--warm-cream);
+    padding: 10px 12px;
+    font-weight: 600;
+  }
+  .compare-table-z5 td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: var(--warm-cream);
+  }
+  .compare-table-z5 tr:last-child td {
+    color: var(--appetite-red);
+    font-weight: 700;
+  }
+
+  /* 혜택 정리 */
+  .benefits-list {
+    text-align: left;
+    list-style: none;
+    margin: 24px 0;
+    padding: 24px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+  }
+  .benefits-list li {
+    padding: 6px 0;
+    font-size: 14px;
+    color: var(--warm-cream);
+  }
+  .benefits-list li::before {
+    content: '✓';
+    margin-right: 8px;
+    color: var(--nature-green);
+    font-weight: 700;
+  }
+
+  /* CTA 버튼 (공통) */
+  .cta-button {
+    display: block;
+    width: 100%;
+    max-width: 640px;
+    margin: 24px auto 0;
+    padding: 20px;
+    background: var(--appetite-red);
+    color: var(--white);
+    text-align: center;
+    font-size: 22px;
+    font-weight: 800;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(230,51,18,0.4);
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+  .cta-button:hover {
+    background: #cc2a0e;
+    box-shadow: 0 6px 28px rgba(230,51,18,0.5);
+    transform: translateY(-1px);
+  }
+  .cta-button.large {
+    font-size: 26px;
+    padding: 24px;
+  }
+
+  .free-ship-note {
+    text-align: center;
+    font-size: 14px;
+    color: var(--gold-yellow);
+    margin-top: 12px;
+  }
+
+  /* ─── ZONE 6 ─── */
+  .zone6 {
+    background: var(--warm-cream);
+    padding: 48px 40px;
+  }
+  .zone6 h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .faq-list {
+    margin-bottom: 32px;
+  }
+  .faq-item {
+    background: var(--white);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .faq-q {
+    padding: 16px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-dark);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+  }
+  .faq-q:hover { background: rgba(0,0,0,0.02); }
+  .faq-q .toggle { font-size: 18px; color: var(--text-mid); transition: transform 0.3s; }
+  .faq-a {
+    padding: 0 20px 16px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-dark);
+    display: none;
+  }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-q .toggle { transform: rotate(45deg); }
+
+  /* 안심 보증 카드 */
+  .guarantee-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 32px 0;
+  }
+  .guarantee-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .guarantee-card .g-icon { font-size: 28px; margin-bottom: 8px; display: block; }
+  .guarantee-card .g-title { font-size: 14px; font-weight: 700; color: var(--text-dark); }
+  .guarantee-card .g-desc { font-size: 12px; color: var(--text-mid); margin-top: 4px; }
+
+  /* 안심 테이블 */
+  .guarantee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+  .guarantee-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .guarantee-table td:first-child {
+    font-weight: 700;
+    width: 40%;
+    color: var(--text-dark);
+  }
+
+  /* 주문 프로세스 */
+  .order-process {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    align-items: center;
+    gap: 8px;
+    margin: 32px 0;
+    text-align: center;
+  }
+  .order-step {
+    padding: 16px 8px;
+  }
+  .order-step .os-num {
+    display: inline-block;
+    width: 28px; height: 28px;
+    background: var(--appetite-red);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 28px;
+    margin-bottom: 8px;
+  }
+  .order-step .os-icon { font-size: 24px; display: block; margin-bottom: 4px; }
+  .order-step .os-text { font-size: 13px; font-weight: 600; color: var(--text-dark); }
+  .order-arrow { font-size: 20px; color: var(--text-light); }
+
+  .order-note {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--appetite-red);
+    margin-top: 8px;
+  }
+
+  /* 최종 CTA 밴드 */
+  .final-cta-band {
+    background: var(--charcoal-black);
+    padding: 40px;
+    text-align: center;
+  }
+  .final-cta-band .fc-headline {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--warm-cream);
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  .final-cta-band .fc-price {
+    margin-bottom: 16px;
+  }
+  .final-cta-band .fc-original {
+    font-size: 18px;
+    color: var(--text-light);
+    text-decoration: line-through;
+  }
+  .final-cta-band .fc-sale {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--appetite-red);
+    margin-left: 8px;
+  }
+  .final-cta-band .fc-tags {
+    font-size: 14px;
+    color: var(--text-mid);
+    margin-top: 8px;
+  }
+  .final-cta-band .fc-last {
+    font-size: 14px;
+    color: var(--warm-cream);
+    margin-top: 20px;
+    line-height: 1.7;
+    opacity: 0.8;
+  }
+
+  /* ─── 나노 바나나 프롬프트 토글 ─── */
+  .prompt-toggle {
+    margin-top: 16px;
+  }
+  .prompt-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(212,160,23,0.15);
+    color: var(--gold-yellow);
+    border: 1px solid rgba(212,160,23,0.3);
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .prompt-btn:hover {
+    background: rgba(212,160,23,0.25);
+  }
+  .prompt-btn .arrow { transition: transform 0.3s; }
+  .prompt-content {
+    display: none;
+    margin-top: 12px;
+    background: rgba(26,26,26,0.95);
+    border: 1px solid rgba(212,160,23,0.2);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+  }
+  .prompt-content.on-light {
+    background: var(--white);
+    border-color: var(--border-soft);
+  }
+  .prompt-content.show { display: block; }
+  .prompt-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .prompt-model {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  .prompt-model.nano { background: #3B82F6; color: white; }
+  .prompt-model.pro { background: #8B5CF6; color: white; }
+  .prompt-id {
+    font-size: 12px;
+    color: var(--gold-yellow);
+    font-weight: 700;
+  }
+  .prompt-text {
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #ccc;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .prompt-content.on-light .prompt-text {
+    color: var(--text-dark);
+  }
+  .prompt-content.on-light .prompt-id {
+    color: var(--appetite-red);
+  }
+  .copy-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255,255,255,0.1);
+    color: var(--warm-cream);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .copy-btn:hover {
+    background: rgba(255,255,255,0.2);
+  }
+  .prompt-content.on-light .copy-btn {
+    color: var(--text-dark);
+    background: var(--warm-cream);
+    border-color: var(--border-soft);
+  }
+
+  /* 스티키 CTA */
+  .sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 720px;
+    background: var(--white);
+    border-top: 1px solid var(--border-soft);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 99;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+  }
+  .sticky-price {
+    font-size: 12px;
+  }
+  .sticky-price .sp-label { color: var(--text-mid); }
+  .sticky-price .sp-original {
+    text-decoration: line-through;
+    color: var(--text-light);
+    font-size: 13px;
+  }
+  .sticky-price .sp-sale {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--appetite-red);
+  }
+  .sticky-btn {
+    background: var(--appetite-red);
+    color: var(--white);
+    padding: 14px 32px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 2px 12px rgba(230,51,18,0.3);
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+  }
+  .sticky-btn:hover {
+    background: #cc2a0e;
+  }
+
+  /* 푸터 */
+  .footer {
+    background: var(--charcoal-black);
+    color: var(--text-mid);
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    padding-bottom: 80px;
+  }
+  .footer a {
+    color: var(--gold-yellow);
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<div class="header">
+  <h1>상세페이지 스토리보드 — 국내산 한돈 돼지고기 4종 골라담기</h1>
+  <div class="meta">720px Mobile-First | 썸네일 + 6-ZONE Funnel | Nano Banana Prompts 22종</div>
+</div>
+
+<div class="mobile-container">
+
+<!-- ===== 상품 썸네일 기획 ===== -->
+<div class="zone-label" style="background:var(--nature-green);">
+  THUMBNAIL — 상품 대표 이미지 (검색/카테고리 노출용)
+  <span class="sub" style="color:#cce5c5;">1000×1000px 정사각형 | 클릭 유도 목적 | 상세페이지 이미지 아님</span>
+</div>
+
+<div style="background:var(--warm-cream);padding:40px;">
+  <h2 style="font-size:22px;font-weight:700;color:var(--text-dark);margin-bottom:24px;text-align:center;">상품 썸네일 3종 (A/B 테스트용)</h2>
+
+  <!-- 안 1 -->
+  <div style="background:var(--white);border-radius:16px;padding:24px;margin-bottom:16px;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+      <span style="background:var(--appetite-red);color:white;padding:2px 10px;border-radius:10px;font-size:12px;font-weight:700;">추천</span>
+      <strong style="font-size:16px;">안 1: 시즐 임팩트</strong>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center;">
+      <div style="background:linear-gradient(135deg,#FFF8F0,#f0e6d6);border-radius:12px;height:200px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+        <div style="position:absolute;left:0;top:0;width:60%;height:100%;background:linear-gradient(135deg,#8B4513,#CD853F);border-radius:12px 0 0 12px;display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:48px;">🔥🥩</span>
+        </div>
+        <div style="position:absolute;right:12px;text-align:right;font-size:12px;color:var(--text-dark);z-index:1;">
+          <div style="font-size:11px;background:var(--nature-green);color:white;padding:2px 6px;border-radius:4px;display:inline-block;margin-bottom:4px;">국내산 한돈</div><br>
+          <strong style="font-size:14px;">냉장 삼겹살</strong><br>
+          <span style="color:var(--appetite-red);font-weight:700;">4종 골라담기</span>
+        </div>
+      </div>
+      <div style="font-size:13px;line-height:1.8;color:var(--text-mid);">
+        <strong style="color:var(--text-dark);">컨셉</strong>: 시즐컷 식욕 자극 + 핵심 키워드<br>
+        <strong style="color:var(--text-dark);">구성</strong>: 좌측 60% 이미지 / 우측 텍스트<br>
+        <strong style="color:var(--text-dark);">적합</strong>: 네이버쇼핑, 카테고리 리스팅
+      </div>
+    </div>
+  </div>
+
+  <!-- 안 2 -->
+  <div style="background:var(--white);border-radius:16px;padding:24px;margin-bottom:16px;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+    <strong style="font-size:16px;display:block;margin-bottom:12px;">안 2: 4종 그리드</strong>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center;">
+      <div style="background:var(--white);border:1px solid var(--border-soft);border-radius:12px;padding:12px;">
+        <div style="text-align:center;font-size:12px;font-weight:700;margin-bottom:8px;">국내산 한돈 냉장 4종</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;">
+          <div style="background:#f5e6d0;border-radius:6px;padding:12px;text-align:center;font-size:11px;">🥓 삼겹살</div>
+          <div style="background:#f0dcc8;border-radius:6px;padding:12px;text-align:center;font-size:11px;">🍖 오겹살</div>
+          <div style="background:#f5d6c8;border-radius:6px;padding:12px;text-align:center;font-size:11px;">🥩 목살</div>
+          <div style="background:#fae0c8;border-radius:6px;padding:12px;text-align:center;font-size:11px;">✨ 항정살</div>
+        </div>
+        <div style="text-align:center;margin-top:6px;font-size:11px;background:var(--appetite-red);color:white;border-radius:4px;padding:2px;">39% 할인</div>
+      </div>
+      <div style="font-size:13px;line-height:1.8;color:var(--text-mid);">
+        <strong style="color:var(--text-dark);">컨셉</strong>: 4종 선택 가능 특성 강조<br>
+        <strong style="color:var(--text-dark);">구성</strong>: 상단 텍스트 + 2×2 그리드<br>
+        <strong style="color:var(--text-dark);">적합</strong>: 선택형 상품 어필 시
+      </div>
+    </div>
+  </div>
+
+  <!-- 안 3 -->
+  <div style="background:var(--white);border-radius:16px;padding:24px;margin-bottom:16px;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+    <strong style="font-size:16px;display:block;margin-bottom:12px;">안 3: 가격 충격</strong>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center;">
+      <div style="background:var(--charcoal-black);border-radius:12px;padding:20px;text-align:center;">
+        <div style="color:var(--gold-yellow);font-size:13px;font-weight:600;">국내산 한돈</div>
+        <div style="color:var(--appetite-red);font-size:32px;font-weight:900;margin:4px 0;">9,500원</div>
+        <div style="color:var(--warm-cream);font-size:11px;">냉장 4종 골라담기</div>
+      </div>
+      <div style="font-size:13px;line-height:1.8;color:var(--text-mid);">
+        <strong style="color:var(--text-dark);">컨셉</strong>: 가격 앵커링으로 클릭 유도<br>
+        <strong style="color:var(--text-dark);">구성</strong>: 블랙 배경 + 대형 가격<br>
+        <strong style="color:var(--text-dark);">적합</strong>: 할인 기획전, 가격 민감 채널
+      </div>
+    </div>
+  </div>
+
+  <!-- 썸네일 프롬프트 -->
+  <div class="prompt-toggle">
+    <button class="prompt-btn" onclick="togglePrompt('pt1')" style="background:rgba(74,124,63,0.1);color:var(--nature-green);border-color:rgba(74,124,63,0.3);">
+      <span class="arrow">▸</span> 프롬프트 T1: 썸네일 시즐컷
+    </button>
+    <div class="prompt-content on-light" id="pt1">
+      <button class="copy-btn" onclick="copyPrompt('pt1-text')">복사</button>
+      <div class="prompt-meta"><span class="prompt-id" style="color:var(--nature-green);">Prompt T1 — 썸네일 시즐컷</span><span class="prompt-model nano">Nano Banana</span></div>
+      <div class="prompt-text" id="pt1-text">Korean BBQ pork belly (samgyeopsal) grilling on charcoal,
+three thick golden-brown slices with sizzling fat and light smoke,
+shot from 45-degree angle on a clean bright background.
+The meat is the hero — sharp focus, vibrant warm colors,
+bright and clean overall lighting suitable for an e-commerce product thumbnail.
+No text, no overlay, clean composition with space on the right side for text placement.
+High saturation, appetizing food photography.
+Square format 1:1.</div>
+    </div>
+  </div>
+  <div class="prompt-toggle" style="margin-top:8px;">
+    <button class="prompt-btn" onclick="togglePrompt('pt2')" style="background:rgba(74,124,63,0.1);color:var(--nature-green);border-color:rgba(74,124,63,0.3);">
+      <span class="arrow">▸</span> 프롬프트 T2: 썸네일 4종 그리드
+    </button>
+    <div class="prompt-content on-light" id="pt2">
+      <button class="copy-btn" onclick="copyPrompt('pt2-text')">복사</button>
+      <div class="prompt-meta"><span class="prompt-id" style="color:var(--nature-green);">Prompt T2 — 썸네일 4종 그리드</span><span class="prompt-model nano">Nano Banana</span></div>
+      <div class="prompt-text" id="pt2-text">Four different cuts of fresh raw Korean pork arranged in a 2x2 grid on white background:
+top-left: pork belly (samgyeopsal) with layered fat,
+top-right: five-layer pork belly (ogyeopsal) thicker cut,
+bottom-left: pork neck/collar (mokssal) with marbling,
+bottom-right: pork jowl (hangjeongsal) small premium cut.
+Each piece on a small white plate, consistent bright overhead lighting,
+clean product photography style, high detail on meat texture.
+No text, clean composition.
+Square format 1:1.</div>
+    </div>
+  </div>
+
+  <div style="margin-top:20px;padding:16px;background:rgba(74,124,63,0.06);border-radius:12px;font-size:13px;color:var(--text-mid);line-height:1.8;">
+    <strong style="color:var(--text-dark);">텍스트 오버레이 가이드</strong> (디자인 툴에서 별도 추가)<br>
+    • "국내산 한돈" → Pretendard Bold 28px, <span style="color:var(--nature-green);">#4A7C3F</span><br>
+    • "냉장 4종 골라담기" → Pretendard ExtraBold 36px, #1A1A1A<br>
+    • "9,500원" → Pretendard ExtraBold 48px, <span style="color:var(--appetite-red);">#E63312</span><br>
+    • "39% 할인" 띠 → 흰 글씨, <span style="color:var(--appetite-red);">#E63312</span> 배경
+  </div>
+</div>
+
+<!-- ===== ZONE 1: 히어로 비주얼 ===== -->
+<div class="zone-label">
+  ZONE 1 — HERO VISUAL (히어로 비주얼)
+  <span class="sub">상세페이지 이미지 시작점 | 가격/할인율은 쇼핑몰 UI 영역 (여기 포함하지 않음)</span>
+  <span class="trigger">심리: 감각 전이 + 호기심 유발 + 프리미엄 무드</span>
+</div>
+
+<div class="zone1">
+  <div class="hero-image">
+    <div class="hero-placeholder">
+      <span class="icon">🔥🥩</span>
+      Nano Banana 프롬프트 A<br>
+      숯불 위 삼겹살 시즐컷 히어로<br>
+      720 × 960px 풀블리드
+    </div>
+    <!-- 프롬프트 A -->
+    <div style="position:absolute;bottom:16px;left:16px;right:16px;z-index:3;">
+      <div class="prompt-toggle">
+        <button class="prompt-btn" onclick="togglePrompt('pa')">
+          <span class="arrow">▸</span> 프롬프트 A: 히어로 시즐컷
+        </button>
+        <div class="prompt-content" id="pa">
+          <button class="copy-btn" onclick="copyPrompt('pa-text')">복사</button>
+          <div class="prompt-meta">
+            <span class="prompt-id">Prompt A</span>
+            <span class="prompt-model nano">Nano Banana</span>
+          </div>
+          <div class="prompt-text" id="pa-text">Korean BBQ pork belly (samgyeopsal) grilling on a traditional charcoal grill (sutbul gui).
+Three thick slices of pork belly with visible layers of meat and fat,
+golden-brown sear marks on top surface, glistening with rendered fat.
+Wisps of smoke rising from the charcoal underneath.
+Small flames licking up where fat drips onto the hot coals.
+Shot from a 45-degree overhead angle.
+Warm amber and orange lighting from the charcoal glow below,
+soft directional light from upper left.
+Dark moody background, shallow depth of field with the front slice in sharp focus.
+Food photography style, hyper-realistic, appetizing,
+rich warm color tones.
+Aspect ratio 3:4.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 감성 카피 오버레이 (가격 정보 없음) -->
+  <div class="zone1-text">
+    <div style="font-size:16px;color:var(--gold-yellow);margin-bottom:8px;font-weight:500;letter-spacing:1px;">KOREAN PREMIUM PORK</div>
+    <h2 class="main-headline">숯불 위,<br>한돈의 첫 만남</h2>
+    <div style="font-size:16px;color:var(--warm-cream);opacity:0.8;margin-top:12px;">
+      국내산 냉장 삼겹살 · 오겹살 · 목살 · 항정살
+    </div>
+    <div style="font-size:13px;color:var(--text-mid);margin-top:24px;text-align:center;letter-spacing:2px;">
+      아래로 스크롤하세요 ↓
+    </div>
+  </div>
+
+  <!-- 4종 미니 썸네일 -->
+  <div class="mini-thumbs">
+    <div class="mini-thumb">
+      <span class="thumb-icon">🥓</span>
+      <span class="thumb-name">삼겹살</span>
+      <span class="thumb-desc">캠핑의 꽃</span>
+      <div class="prompt-toggle">
+        <button class="prompt-btn" onclick="togglePrompt('pb')" style="font-size:10px;padding:3px 8px;margin-top:6px;">
+          <span class="arrow">▸</span> B
+        </button>
+      </div>
+    </div>
+    <div class="mini-thumb">
+      <span class="thumb-icon">🍖</span>
+      <span class="thumb-name">오겹살</span>
+      <span class="thumb-desc">겹겹이 풍미</span>
+      <div class="prompt-toggle">
+        <button class="prompt-btn" onclick="togglePrompt('pc')" style="font-size:10px;padding:3px 8px;margin-top:6px;">
+          <span class="arrow">▸</span> C
+        </button>
+      </div>
+    </div>
+    <div class="mini-thumb">
+      <span class="thumb-icon">🥩</span>
+      <span class="thumb-name">목살</span>
+      <span class="thumb-desc">부드러운 담백</span>
+      <div class="prompt-toggle">
+        <button class="prompt-btn" onclick="togglePrompt('pd')" style="font-size:10px;padding:3px 8px;margin-top:6px;">
+          <span class="arrow">▸</span> D
+        </button>
+      </div>
+    </div>
+    <div class="mini-thumb">
+      <span class="thumb-icon">✨</span>
+      <span class="thumb-name">항정살</span>
+      <span class="thumb-desc">쫄깃 끝판왕</span>
+      <div class="prompt-toggle">
+        <button class="prompt-btn" onclick="togglePrompt('pe')" style="font-size:10px;padding:3px 8px;margin-top:6px;">
+          <span class="arrow">▸</span> E
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 프롬프트 B~E (숨김) -->
+  <div style="padding:0 40px 24px;background:var(--charcoal-black);">
+    <div class="prompt-content" id="pb">
+      <button class="copy-btn" onclick="copyPrompt('pb-text')">복사</button>
+      <div class="prompt-meta"><span class="prompt-id">Prompt B — 삼겹살 원물컷</span><span class="prompt-model nano">Nano Banana</span></div>
+      <div class="prompt-text" id="pb-text">Fresh raw Korean pork belly (samgyeopsal) slab,
+neatly trimmed rectangular cut showing beautiful layers of lean meat and white fat.
+Pink fresh color, placed on a dark slate stone surface.
+Overhead flat-lay angle, soft natural window light from the left.
+Minimalist composition, clean background,
+food photography, high detail on meat texture and marbling.
+Square format 1:1.</div>
+    </div>
+    <div class="prompt-content" id="pc">
+      <button class="copy-btn" onclick="copyPrompt('pc-text')">복사</button>
+      <div class="prompt-meta"><span class="prompt-id">Prompt C — 오겹살 원물컷</span><span class="prompt-model nano">Nano Banana</span></div>
+      <div class="prompt-text" id="pc-text">Fresh raw Korean five-layer pork belly (ogyeopsal),
+showing five distinct alternating layers of lean meat and fat.
+Slightly thicker cut than regular pork belly, pinkish-red fresh color.
+Placed on a dark slate stone surface.
+Overhead flat-lay angle, soft natural window light from the left.
+Minimalist composition, clean background,
+food photography, high detail on the five-layer cross-section.
+Square format 1:1.</div>
+    </div>
+    <div class="prompt-content" id="pd">
+      <button class="copy-btn" onclick="copyPrompt('pd-text')">복사</button>
+      <div class="prompt-meta"><span class="prompt-id">Prompt D — 목살 원물컷</span><span class="prompt-model nano">Nano Banana</span></div>
+      <div class="prompt-text" id="pd-text">Fresh raw Korean pork neck (mokssal/pork collar),
+well-marbled cut with fine intramuscular fat throughout the lean meat.
+Rich pinkish-red color, slightly irregular natural shape.
+Placed on a dark slate stone surface.
+Overhead flat-lay angle, soft natural window light from the left.
+Minimalist composition, clean background,
+food photography, high detail on the marbling pattern.
+Square format 1:1.</div>
+    </div>
+    <div class="prompt-content" id="pe">
+      <button class="copy-btn" onclick="copyPrompt('pe-text')">복사</button>
+      <div class="prompt-meta"><span class="prompt-id">Prompt E — 항정살 원물컷</span><span class="prompt-model nano">Nano Banana</span></div>
+      <div class="prompt-text" id="pe-text">Fresh raw Korean pork jowl (hangjeongsal),
+premium cut with distinctive fine marbling and smooth texture.
+Light pink color with delicate white fat lines running through.
+Small premium portion, placed on a dark slate stone surface.
+Overhead flat-lay angle, soft natural window light from the left.
+Minimalist composition, clean background,
+food photography, high detail on the fine marbling and smooth surface.
+Square format 1:1.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ZONE 2: 공감 + 관심 ===== -->
+<div class="zone-label">
+  ZONE 2 — EMPATHY & INTEREST (공감 + 관심)
+  <span class="sub">목표: "이건 내 이야기" 인식 | 카피 공식: PAS</span>
+  <span class="trigger">심리: 미러링 + 자율성 편향 + 프레이밍</span>
+</div>
+
+<div class="zone2">
+  <h2>혹시 이런 적<br>없으셨어요?</h2>
+
+  <ul class="checklist">
+    <li>마트 고기 코너에서 국내산 가격표 보고 조용히 수입산으로 손이 간 적</li>
+    <li>"아이한테 국내산 먹이고 싶은데..." 하면서도 장바구니엔 냉동 수입육</li>
+    <li>온라인으로 고기 시켰다가 냉동번 뜨고, 해동하니까 육즙 다 빠져서 실망한 적</li>
+    <li>삼겹살도 먹고 싶고 목살도 먹고 싶고, 두 개 사니까 배송비에 가격이 훌쩍</li>
+    <li>"오늘은 고기 먹자!" 했다가 마트 갈 시간이 없어서 결국 배달앱 켠 적</li>
+  </ul>
+
+  <div class="loss-box">
+    <strong>계산해 보셨어요?</strong><br><br>
+    마트에서 국내산 삼겹살 <strong>100g에 2,000원</strong>.<br>
+    한 번 구울 때 400g이면 <strong>8,000원</strong>.<br>
+    거기에 목살까지 따로 사면? <strong>15,000원은 훌쩍 넘어요.</strong><br><br>
+    배달 삼겹살 1인분? <strong>15,000~18,000원.</strong><br>
+    한 달에 세 번이면? <strong>45,000원 이상이 고기값으로.</strong>
+  </div>
+
+  <div class="bridge-copy">
+    국내산 한돈 냉장육이 9,500원이면?<br>
+    같은 돈으로 <span style="font-size:24px;">두 배 더 자주</span><br>
+    온 가족이 고기를 먹을 수 있어요.
+  </div>
+
+  <!-- 4종 카드 그리드 -->
+  <h2 style="margin-top:40px;">4종 부위,<br>골라담는 재미</h2>
+  <div class="cuts-grid">
+    <div class="cut-card">
+      <div class="cut-card-img samgyeop">
+        <span style="z-index:1;">Prompt F<br>구운 삼겹살</span>
+      </div>
+      <div class="cut-card-text">
+        <h3>삼겹살</h3>
+        <p>캠핑의 꽃, 소주의 단짝.<br>구이의 왕도를 걷고 싶다면</p>
+        <div class="cut-tags">
+          <span class="tag-grill">구이용</span>
+        </div>
+      </div>
+    </div>
+    <div class="cut-card">
+      <div class="cut-card-img ogyeop">
+        <span style="z-index:1;">Prompt G<br>구운 오겹살</span>
+      </div>
+      <div class="cut-card-text">
+        <h3>오겹살</h3>
+        <p>겹겹이 쌓인 풍미.<br>두툼한 한 점의 행복</p>
+        <div class="cut-tags">
+          <span class="tag-grill">구이용</span>
+        </div>
+      </div>
+    </div>
+    <div class="cut-card">
+      <div class="cut-card-img moksal">
+        <span style="z-index:1;">Prompt H<br>구운 목살</span>
+      </div>
+      <div class="cut-card-text">
+        <h3>목살</h3>
+        <p>부드럽고 담백해서<br>아이부터 어른까지. 수육 최고</p>
+        <div class="cut-tags">
+          <span class="tag-grill">구이용</span>
+          <span class="tag-boil">수육용</span>
+        </div>
+      </div>
+    </div>
+    <div class="cut-card">
+      <div class="cut-card-img hangjeong">
+        <span style="z-index:1;">Prompt I<br>구운 항정살</span>
+      </div>
+      <div class="cut-card-text">
+        <h3>항정살</h3>
+        <p>소량만 나오는 특수 부위.<br>쫄깃한 식감의 끝판왕</p>
+        <div class="cut-tags">
+          <span class="tag-grill">구이용</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 프롬프트 F~I 토글 -->
+  <div class="prompt-toggle">
+    <button class="prompt-btn" onclick="togglePrompt('pfghi')" style="background:rgba(230,51,18,0.08);color:var(--appetite-red);border-color:rgba(230,51,18,0.2);">
+      <span class="arrow">▸</span> 프롬프트 F~I: 4종 구운 카드 이미지
+    </button>
+    <div class="prompt-content on-light" id="pfghi">
+      <button class="copy-btn" onclick="copyPrompt('pfghi-text')">복사</button>
+      <div class="prompt-meta"><span class="prompt-id" style="color:var(--appetite-red);">Prompts F, G, H, I</span><span class="prompt-model nano">Nano Banana</span></div>
+      <div class="prompt-text" id="pfghi-text">[ Prompt F — 삼겹살 ]
+Perfectly grilled Korean pork belly (samgyeopsal) slices on a clean white plate,
+3-4 golden brown slices with crispy edges and juicy interior visible.
+Accompanied by small side of sliced garlic and green chili pepper.
+Bright, airy food photography with soft overhead natural light.
+Light neutral background, slightly warm tones.
+Shot from 45-degree angle, shallow depth of field.
+Clean minimalist plating, appetizing and fresh look.
+Aspect ratio 3:4.
+
+[ Prompt G — 오겹살 ]
+Thick-cut grilled Korean five-layer pork belly (ogyeopsal) on a white ceramic plate,
+showing the five distinct layers with beautiful golden-brown crust on outside
+and tender juicy layers visible in cross-section.
+Thicker and more substantial than regular pork belly.
+Bright, airy food photography with soft overhead natural light.
+Light neutral background, warm appetizing tones.
+Shot from 45-degree angle, shallow depth of field.
+Clean modern plating style.
+Aspect ratio 3:4.
+
+[ Prompt H — 목살 ]
+Grilled Korean pork neck (mokssal/pork collar) slices on a white plate,
+beautifully charred edges with juicy, well-marbled interior.
+The marbling creates a moist, tender appearance.
+Some slices showing grill marks in a crosshatch pattern.
+Bright, airy food photography with soft overhead natural light.
+Light neutral background, warm appetizing tones.
+Shot from 45-degree angle, shallow depth of field.
+Clean plating with a small leaf of lettuce as accent.
+Aspect ratio 3:4.
+
+[ Prompt I — 항정살 ]
+Grilled Korean pork jowl (hangjeongsal) on a white plate,
+premium small portions with delicate golden sear,
+melt-in-your-mouth tender texture visible, fine marbling throughout.
+Slightly pink interior showing perfect medium doneness.
+Bright, airy food photography with soft overhead natural light.
+Light neutral background, warm appetizing tones.
+Shot from 45-degree angle, shallow depth of field.
+Elegant minimalist plating emphasizing the premium quality.
+Aspect ratio 3:4.</div>
+    </div>
+  </div>
+
+  <!-- 가격 비교 바 -->
+  <div class="price-compare-bar">
+    <div class="compare-item normal">
+      <div class="compare-label">마트 국내산</div>
+      <div>100g당</div>
+      <div class="compare-price" style="color:var(--text-dark);">~2,000원</div>
+    </div>
+    <div class="compare-item normal">
+      <div class="compare-label">온라인 수입산</div>
+      <div>100g당</div>
+      <div class="compare-price" style="color:var(--text-dark);">~800원</div>
+    </div>
+    <div class="compare-item highlight">
+      <div class="compare-label">★ 본 상품</div>
+      <div>100g당</div>
+      <div class="compare-price">~950원</div>
+    </div>
+  </div>
+  <div style="text-align:center;font-size:16px;font-weight:700;color:var(--nature-green);margin-top:16px;">
+    국내산 품질, 수입산 가격
+  </div>
+</div>
+
+<!-- ===== ZONE 3: 욕구 폭발 ===== -->
+<div class="zone-label">
+  ZONE 3 — DESIRE EXPLOSION (욕구 폭발)
+  <span class="sub">목표: "먹고 싶다" 감각 자극 최대화 | 카피 공식: BAB + 4U</span>
+  <span class="trigger">심리: 감각 전이 + 심적 시뮬레이션 + 소유 효과 + 현재 편향</span>
+</div>
+
+<div class="zone3">
+  <h2>두툼한 삼겹살이</h2>
+  <div class="section-sub">숯불 위에서 지글지글</div>
+
+  <!-- 메인 시즐컷 -->
+  <div class="sizzle-hero">
+    <div style="z-index:1;">
+      <span style="font-size:48px;display:block;margin-bottom:12px;">🔥</span>
+      Nano Banana 프롬프트 J<br>
+      집게로 삼겹살 뒤집는 순간<br>
+      역동적 시즐컷 — 720 × 420px
+    </div>
+  </div>
+  <div class="prompt-toggle">
+    <button class="prompt-btn" onclick="togglePrompt('pj')">
+      <span class="arrow">▸</span> 프롬프트 J: 뒤집는 시즐컷
+    </button>
+    <div class="prompt-content" id="pj">
+      <button class="copy-btn" onclick="copyPrompt('pj-text')">복사</button>
+      <div class="prompt-meta"><span class="prompt-id">Prompt J</span><span class="prompt-model nano">Nano Banana</span></div>
+      <div class="prompt-text" id="pj-text">Dynamic action shot of Korean BBQ:
+metal tongs flipping a thick slice of pork belly on a charcoal grill,
+the moment of flipping captured mid-air.
+Golden-brown seared surface on the flipped side,
+juicy fat rendering and dripping down,
+small flames erupting from the charcoal where fat drops.
+Dramatic wisps of smoke swirling upward.
+Dark background, warm amber lighting from below (charcoal glow),
+slight rim light on the tongs and meat edges.
+Food photography, dramatic and dynamic composition,
+hyper-realistic, appetizing warm color palette.
+Aspect ratio 4:3.</div>
+    </div>
+  </div>
+
+  <!-- 마블링 밴드 -->
+  <div class="marbling-band" style="margin-top:32px;">
+    <div style="z-index:1;">
+      <span style="font-size:11px;display:block;opacity:0.6;">Prompt K — 마블링 클로즈업</span>
+      눈으로 확인하는 한돈의 품질
+    </div>
+  </div>
+  <div class="prompt-toggle">
+    <button class="prompt-btn" onclick="togglePrompt('pk')">
+      <span class="arrow">▸</span> 프롬프트 K: 마블링 클로즈업
+    </button>
+    <div class="prompt-content" id="pk">
+      <button class="copy-btn" onclick="copyPrompt('pk-text')">복사</button>
+      <div class="prompt-meta"><span class="prompt-id">Prompt K</span><span class="prompt-model nano">Nano Banana</span></div>
+      <div class="prompt-text" id="pk-text">Extreme close-up macro shot of fresh raw pork with beautiful marbling pattern,
+fine white fat lines interspersed throughout pink lean meat.
+Wet glossy surface reflecting light, showing premium meat quality.
+Ultra-sharp focus on the marbling texture.
+Soft gradient lighting from left, dark background fading to black on edges.
+Food photography, studio lighting, high detail,
+emphasis on the quality and freshness of the meat texture.
+Wide panoramic aspect ratio 18:5.</div>
+    </div>
+  </div>
+
+  <!-- BAB 구조 -->
+  <div class="bab-section" style="margin-top:32px;">
+    <h2 style="font-size:22px;margin-bottom:16px;">마트에서는 절대 못 하는 걸,<br>여기서 합니다</h2>
+    <div class="bab-block bab-before">
+      <div class="bab-label">BEFORE — 지금까지</div>
+      <div class="bab-text">매번 한 부위만 사서 질리고,<br>국내산은 비싸서 포기하고,<br>냉동육은 해동하느라 맛도 떨어지고.</div>
+    </div>
+    <div class="bab-block bab-after">
+      <div class="bab-label">AFTER — 앞으로</div>
+      <div class="bab-text"><strong style="color:var(--appetite-red);">삼겹살, 오겹살, 목살, 항정살</strong><br>4종 중 원하는 부위를 골라담고,<br><strong>구이용? 수육용?</strong> 용도까지 내가 정하고,<br><strong>국내산 냉장이니까</strong> 받자마자 바로 불 위에 올리면 끝.</div>
+    </div>
+    <div class="bab-block bab-bridge">
+      <div class="bab-label">BRIDGE</div>
+      <div class="bab-text" style="font-size:20px;font-weight:700;">그게 <span style="color:var(--appetite-red);font-size:28px;">9,500원</span>이면?<br>이건 고민할 이유가 없습니다.</div>
+    </div>
+  </div>
+
+  <!-- USP 비교표 -->
+  <table class="usp-table">
+    <thead>
+      <tr><th>비교</th><th>가격 (100g)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>마트 국내산 삼겹살</td><td>약 1,800~2,500원</td></tr>
+      <tr><td>프리미엄 한돈 브랜드</td><td>약 2,000~3,000원</td></tr>
+      <tr><td style="font-weight:700;">본 상품</td><td class="hl">약 950원~</td></tr>
+    </tbody>
+  </table>
+
+  <!-- 부위 추천표 -->
+  <table class="cuts-recommend">
+    <thead>
+      <tr><th>부위</th><th>이런 분께 추천</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>삼겹살</td><td>캠핑의 꽃, 소주의 단짝. 구이의 왕도</td></tr>
+      <tr><td>오겹살</td><td>겹겹이 쌓인 풍미. 두툼한 한 점의 행복</td></tr>
+      <tr><td>목살</td><td>부드럽고 담백. 아이부터 어른까지, 수육 최고</td></tr>
+      <tr><td>항정살</td><td>소량 특수 부위. 쫄깃한 식감 끝판왕</td></tr>
+    </tbody>
+  </table>
+
+  <div style="text-align:center;font-size:16px;color:var(--warm-cream);margin-top:8px;line-height:1.8;">
+    마트에선 부위마다 따로 줄 서야 하죠.<br>
+    <strong style="color:var(--appetite-red);">여기선 한 번에, 내가 원하는 대로 담습니다.</strong>
+  </div>
+
+  <!-- 라이프스타일 카드 -->
+  <div style="margin-top:40px;">
+    <h2 style="font-size:22px;margin-bottom:20px;text-align:center;">이미 내 냉장고에 있다면?</h2>
+  </div>
+  <div class="lifestyle-cards">
+    <div class="lifestyle-card">
+      <div class="lifestyle-img family">
+        <div style="z-index:1;font-size:13px;opacity:0.7;">Prompt L — 가족 식탁</div>
+      </div>
+      <div class="lifestyle-overlay">
+        <div class="scene-label">Scene 1 — 가족 식탁</div>
+        <p>퇴근 후 30분,<br>온 가족이 행복한 저녁 식탁</p>
+      </div>
+    </div>
+    <div class="lifestyle-card">
+      <div class="lifestyle-img camping">
+        <div style="z-index:1;font-size:13px;opacity:0.7;">Prompt M — 캠핑 그릴</div>
+      </div>
+      <div class="lifestyle-overlay">
+        <div class="scene-label">Scene 2 — 캠핑</div>
+        <p>주말 캠핑의 하이라이트,<br>직접 가져간 한돈 한 팩</p>
+      </div>
+    </div>
+    <div class="lifestyle-card">
+      <div class="lifestyle-img friends">
+        <div style="z-index:1;font-size:13px;opacity:0.7;">Prompt N — 친구 모임</div>
+      </div>
+      <div class="lifestyle-overlay">
+        <div class="scene-label">Scene 3 — 친구 모임</div>
+        <p>친구가 물어봅니다<br>"이거 어디서 샀어?"</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 라이프스타일 프롬프트 L~N -->
+  <div class="prompt-toggle">
+    <button class="prompt-btn" onclick="togglePrompt('plmn')">
+      <span class="arrow">▸</span> 프롬프트 L~N: 라이프스타일 3장
+    </button>
+    <div class="prompt-content" id="plmn">
+      <button class="copy-btn" onclick="copyPrompt('plmn-text')">복사</button>
+      <div class="prompt-meta"><span class="prompt-id">Prompts L, M, N</span><span class="prompt-model nano">Nano Banana</span></div>
+      <div class="prompt-text" id="plmn-text">[ Prompt L — 가족 식탁 ]
+Warm cozy Korean family dinner scene at home:
+a family of three (mother, father, young child around 7 years old)
+gathered around a tabletop grill at the dining table.
+Grilling pork belly together, the child excitedly reaching with chopsticks.
+Side dishes (kimchi, ssamjang, lettuce wraps) arranged on the table.
+Warm golden evening indoor lighting, residential dining room setting.
+Candid natural moment, genuine smiles and happiness.
+Soft bokeh background showing a cozy home interior.
+Lifestyle photography, warm nostalgic tones, inviting atmosphere.
+Aspect ratio 4:3.
+
+[ Prompt M — 캠핑 그릴 ]
+Outdoor camping BBQ scene:
+a portable charcoal grill on a wooden camping table,
+thick pork belly slices sizzling on the grill grate.
+Natural forest/mountain backdrop slightly blurred.
+Late afternoon golden sunlight filtering through trees.
+Camping gear visible in background (tent, lantern).
+Smoke rising from the grill into the natural setting.
+Lifestyle photography, adventurous yet cozy mood,
+warm natural color palette with greens and ambers.
+Aspect ratio 4:3.
+
+[ Prompt N — 친구 모임 ]
+Korean home party scene with friends:
+a close-up of a sizzling pork belly on a tabletop grill,
+two green soju bottles and small soju glasses visible on the table.
+Lettuce leaves for wrapping, garlic, and dipping sauce arranged nearby.
+Warm convivial atmosphere, slightly dim ambient lighting
+with the warm glow from the grill illuminating the food.
+Background shows blurred silhouettes of friends gathering.
+Lifestyle food photography, social and fun mood,
+warm inviting tones.
+Aspect ratio 4:3.</div>
+    </div>
+  </div>
+
+  <!-- 조리 4단 스텝 -->
+  <div class="steps-strip" style="margin-top:40px;">
+    <div class="step-item">
+      <span class="step-num">1</span>
+      <span class="step-icon">📦</span>
+      <span class="step-text">택배 수령</span>
+    </div>
+    <div class="step-item">
+      <span class="step-num">2</span>
+      <span class="step-icon">✂️</span>
+      <span class="step-text">개봉</span>
+    </div>
+    <div class="step-item">
+      <span class="step-num">3</span>
+      <span class="step-icon">🔥</span>
+      <span class="step-text">바로 굽기</span>
+    </div>
+    <div class="step-item">
+      <span class="step-num">4</span>
+      <span class="step-icon">😋</span>
+      <span class="step-text">완성!</span>
+    </div>
+  </div>
+  <div class="steps-cta">받자마자 바로 구워 드세요</div>
+
+  <!-- 프롬프트 O -->
+  <div class="prompt-toggle" style="margin-top:16px;">
+    <button class="prompt-btn" onclick="togglePrompt('po')">
+      <span class="arrow">▸</span> 프롬프트 O: 조리 4단 스텝
+    </button>
+    <div class="prompt-content" id="po">
+      <button class="copy-btn" onclick="copyPrompt('po-text')">복사</button>
+      <div class="prompt-meta"><span class="prompt-id">Prompt O</span><span class="prompt-model pro">Nano Banana Pro</span></div>
+      <div class="prompt-text" id="po-text">Four-step cooking process shown in a 4-panel horizontal strip layout:
+Panel 1: Vacuum-sealed package of fresh pink pork belly with Korean label.
+Panel 2: Package being opened, fresh meat revealed on a cutting board.
+Panel 3: Meat slices on a hot grill with visible sizzle and smoke.
+Panel 4: Beautifully grilled golden-brown pork belly on a plate, ready to eat, with chopsticks.
+Each panel cleanly separated, consistent bright lighting throughout all panels.
+Clean white background behind each panel, instructional infographic style.
+Numbered steps 1-2-3-4 visible.
+Horizontal layout, aspect ratio 4:1.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ZONE 4: 신뢰 구축 ===== -->
+<div class="zone-label">
+  ZONE 4 — TRUST BUILDING (신뢰 구축)
+  <span class="sub">목표: "사도 괜찮겠다" 합리적 확신 | 카피 공식: AIDA — 신뢰 파트</span>
+  <span class="trigger">심리: 사회적 증거 + 권위 + 투명성</span>
+</div>
+
+<div class="zone4">
+  <h2>의심하셔도 괜찮아요.</h2>
+  <div class="zone4-sub">대신 이것만 확인해 주세요.</div>
+
+  <!-- 평점 -->
+  <div class="rating-block">
+    <div class="rating-stars">★★★★★</div>
+    <div class="rating-number">5.0 / 5.0</div>
+    <div class="rating-sub">구매 고객 만족도</div>
+  </div>
+
+  <!-- 리뷰 카드 -->
+  <div class="review-cards">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"이 가격에 국내산 냉장이요? 처음엔 의심했는데 먹어보고 깜짝 놀랐어요. 마블링 제대로고 육즙이 살아있어요. 재구매 확정입니다."</div>
+      <div class="review-author">구매자 A</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"아이들 고기 반찬 해주려고 샀는데, 국내산이라 안심이 되고 맛도 좋아서 애들이 밥 두 그릇 먹었어요."</div>
+      <div class="review-author">구매자 B</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"캠핑 가면서 삼겹살이랑 항정살 골라 담았는데, 친구들이 어디서 샀냐고 난리. 가격 말해주니까 다들 바로 주문하더라고요."</div>
+      <div class="review-author">구매자 C</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"목살 수육용으로 시켰는데 부드럽고 잡내 하나도 없어요. 이 가격이면 무조건 이득이에요."</div>
+      <div class="review-author">구매자 D</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"냉장이라 받자마자 바로 구웠어요. 냉동이랑은 차원이 달라요, 진짜."</div>
+      <div class="review-author">구매자 E</div>
+    </div>
+  </div>
+
+  <!-- 인증 뱃지 -->
+  <div class="cert-badges">
+    <div class="cert-badge green">
+      <span class="cert-icon">🛡️</span>
+      <div class="cert-title">국내산 한돈</div>
+      <div class="cert-desc">이력 추적 가능</div>
+    </div>
+    <div class="cert-badge blue">
+      <span class="cert-icon">❄️</span>
+      <div class="cert-title">냉장 직배송</div>
+      <div class="cert-desc">신선도 유지</div>
+    </div>
+    <div class="cert-badge gold">
+      <span class="cert-icon">✅</span>
+      <div class="cert-title">HACCP</div>
+      <div class="cert-desc">식품 안전 인증</div>
+    </div>
+  </div>
+
+  <!-- 프롬프트 P -->
+  <div class="prompt-toggle">
+    <button class="prompt-btn" onclick="togglePrompt('pp')" style="background:rgba(230,51,18,0.08);color:var(--appetite-red);border-color:rgba(230,51,18,0.2);">
+      <span class="arrow">▸</span> 프롬프트 P: 인증 뱃지 세트
+    </button>
+    <div class="prompt-content on-light" id="pp">
+      <button class="copy-btn" onclick="copyPrompt('pp-text')">복사</button>
+      <div class="prompt-meta"><span class="prompt-id" style="color:var(--appetite-red);">Prompt P</span><span class="prompt-model pro">Nano Banana Pro</span></div>
+      <div class="prompt-text" id="pp-text">A set of three certification badge icons for a Korean premium pork product,
+arranged horizontally with equal spacing:
+Badge 1: "Korean Handon" domestic pork certification badge with a pig silhouette icon,
+green and gold color scheme, shield shape.
+Badge 2: "Fresh Chilled Delivery" badge with a snowflake and truck icon,
+blue and white color scheme, shield shape.
+Badge 3: "HACCP" food safety certification badge with a checkmark icon,
+orange and white color scheme, shield shape.
+Each badge has clean flat design, modern minimalist style,
+consistent size and shape across all three.
+Light cream background (#FFF8F0).
+Graphic design style, vector-like quality.
+Aspect ratio 3:1.</div>
+    </div>
+  </div>
+
+  <!-- 배송 과정 -->
+  <div class="delivery-flow">
+    <div class="delivery-step"><span class="d-icon">🐖</span><span class="d-label">산지</span></div>
+    <span class="delivery-arrow">→</span>
+    <div class="delivery-step"><span class="d-icon">🏭</span><span class="d-label">가공</span></div>
+    <span class="delivery-arrow">→</span>
+    <div class="delivery-step"><span class="d-icon">📦</span><span class="d-label">냉장포장</span></div>
+    <span class="delivery-arrow">→</span>
+    <div class="delivery-step"><span class="d-icon">🚚</span><span class="d-label">배송</span></div>
+    <span class="delivery-arrow">→</span>
+    <div class="delivery-step"><span class="d-icon">🍽️</span><span class="d-label">식탁</span></div>
+  </div>
+
+  <!-- 프롬프트 Q -->
+  <div class="prompt-toggle">
+    <button class="prompt-btn" onclick="togglePrompt('pq')" style="background:rgba(230,51,18,0.08);color:var(--appetite-red);border-color:rgba(230,51,18,0.2);">
+      <span class="arrow">▸</span> 프롬프트 Q: 배송 인포그래픽
+    </button>
+    <div class="prompt-content on-light" id="pq">
+      <button class="copy-btn" onclick="copyPrompt('pq-text')">복사</button>
+      <div class="prompt-meta"><span class="prompt-id" style="color:var(--appetite-red);">Prompt Q</span><span class="prompt-model pro">Nano Banana Pro</span></div>
+      <div class="prompt-text" id="pq-text">Horizontal 5-step infographic showing the cold chain delivery process for fresh pork:
+Step 1: Farm icon with a barn and pig - labeled "Farm"
+Step 2: Factory icon with processing facility - labeled "Processing"
+Step 3: Ice crystal/refrigerator icon with sealed package - labeled "Cold Packing"
+Step 4: Refrigerated delivery truck icon - labeled "Chilled Delivery"
+Step 5: Happy family at dining table icon - labeled "Your Table"
+Connected by arrow icons between each step.
+Clean flat design, minimal icons with thin line style.
+Color palette: green (#4A7C3F) for farm, blue for cold chain steps,
+warm red (#E63312) for the final dining table step.
+White background, modern infographic style.
+Aspect ratio 5:1.</div>
+    </div>
+  </div>
+
+  <!-- 투명 공개 -->
+  <h3 style="font-size:18px;font-weight:700;margin:32px 0 16px;">이것만큼은 확실합니다</h3>
+  <table class="info-table">
+    <tr><td>원산지</td><td>국내산 한돈 (이력 추적 가능)</td></tr>
+    <tr><td>육류 상태</td><td>냉장 (냉동 아님) — 신선도 유지</td></tr>
+    <tr><td>배송 방식</td><td>냉장 포장 직배송</td></tr>
+    <tr><td>교환/반품</td><td>수령 후 7일 이내 가능</td></tr>
+    <tr><td>불량 시</td><td>배송비 판매자 부담</td></tr>
+  </table>
+  <div style="text-align:center;font-size:15px;font-weight:600;color:var(--nature-green);margin-top:16px;">
+    숨기는 거 없습니다. 다 보여드릴게요.
+  </div>
+</div>
+
+<!-- ===== ZONE 5: 긴급성 + 전환 ===== -->
+<div class="zone-label">
+  ZONE 5 — URGENCY TRIGGER (긴급성 + 전환)
+  <span class="sub">목표: "나중에"를 "지금 당장"으로 | 카피 공식: FOMO + 손실 회피</span>
+  <span class="trigger">심리: 희소성 + 손실 회피 + 현상유지 편향 파괴</span>
+</div>
+
+<div class="zone5">
+  <span class="urgency-tag">한정 특가</span>
+  <h2>이 가격,<br>언제까지 가능한지<br>저희도 모릅니다.</h2>
+
+  <div class="price-remind">
+    <span class="pr-original">정가 15,500원</span>
+    <span class="pr-sale">9,500원</span>
+    <span class="pr-save">6,000원 절약!</span>
+  </div>
+
+  <div class="loss-framing">
+    지금 이 순간 <strong style="color:var(--appetite-red);">6,000원을 아끼는 건지</strong>,<br>
+    아니면 내일 <strong style="color:var(--appetite-red);">6,000원을 더 내는 건지</strong>.<br>
+    차이는 <strong>오늘 담느냐, 내일 후회하느냐</strong>입니다.
+  </div>
+
+  <!-- 프롬프트 R (배경) -->
+  <div class="prompt-toggle">
+    <button class="prompt-btn" onclick="togglePrompt('pr')">
+      <span class="arrow">▸</span> 프롬프트 R: 긴급 섹션 배경
+    </button>
+    <div class="prompt-content" id="pr">
+      <button class="copy-btn" onclick="copyPrompt('pr-text')">복사</button>
+      <div class="prompt-meta"><span class="prompt-id">Prompt R</span><span class="prompt-model nano">Nano Banana</span></div>
+      <div class="prompt-text" id="pr-text">Dark dramatic background texture for a sale promotion banner:
+subtle charcoal grill texture with faint red ember glow in the lower portion,
+very dark overall (near black) with warm red-orange light accents.
+Abstract and atmospheric, not showing specific food items.
+Suitable as a text overlay background.
+Dark moody, cinematic color grading,
+slight smoke or haze effect for depth.
+Aspect ratio 3:4.</div>
+    </div>
+  </div>
+
+  <!-- 가격 비교표 -->
+  <table class="compare-table-z5">
+    <thead>
+      <tr><th>비교 대상</th><th>가격</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>마트 국내산 (1회 구이)</td><td>약 8,000~10,000원</td></tr>
+      <tr><td>배달 삼겹살 1인분</td><td>약 15,000~18,000원</td></tr>
+      <tr><td>외식 고깃집 1인분</td><td>약 15,000~20,000원</td></tr>
+      <tr><td>본 상품 (국내산 냉장)</td><td>9,500원 ← 최저가</td></tr>
+    </tbody>
+  </table>
+
+  <div style="font-size:15px;line-height:1.8;margin:24px 0;">
+    편의점 삼각김밥 하나 값(1,800원)도 안 되는 돈으로<br>
+    온 가족이 국내산 한돈을 먹을 수 있어요.<br>
+    <span style="color:var(--gold-yellow);font-weight:600;">(하루 약 317원 환산)</span>
+  </div>
+
+  <!-- 무료배송 프로그레스 바 -->
+  <div style="font-size:14px;margin-bottom:8px;color:var(--warm-cream);">무료배송까지</div>
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-fill">
+      <span class="progress-text">50,000원 이상 주문 시 무료!</span>
+    </div>
+  </div>
+  <div style="font-size:13px;color:var(--text-mid);margin-top:8px;">
+    5팩만 담으면 무료배송 + 한끼당 가격은 더 내려갑니다
+  </div>
+
+  <!-- 혜택 리스트 -->
+  <ul class="benefits-list">
+    <li>국내산 한돈 냉장육 4종 골라담기</li>
+    <li>정가 대비 39% 할인 (6,000원 절약)</li>
+    <li>구이용 / 수육용 용도 선택 가능</li>
+    <li>냉장 직배송 — 받자마자 바로 조리</li>
+    <li>7일 이내 교환/반품 보장</li>
+    <li>5만원 이상 무료배송</li>
+  </ul>
+
+  <button class="cta-button">국내산 한돈 4종 골라담기 → 지금 주문하기</button>
+  <div class="free-ship-note">이 가격에 국내산 냉장육 만나는 거, 흔한 기회 아닙니다.</div>
+</div>
+
+<!-- ===== ZONE 6: 구매 전환 + 안심 ===== -->
+<div class="zone-label">
+  ZONE 6 — CONVERSION & REASSURANCE (구매 전환 + 안심)
+  <span class="sub">목표: 마지막 불안 제거 → 결제 | 카피 공식: PAS + AIDA</span>
+  <span class="trigger">심리: 제로 리스크 편향 + 일관성 + 호혜성</span>
+</div>
+
+<div class="zone6">
+  <h2>아직 망설이시는 분들,<br>이것만 확인하세요</h2>
+
+  <!-- FAQ -->
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Q1. 이 가격에 진짜 국내산 맞아요?
+        <span class="toggle">+</span>
+      </div>
+      <div class="faq-a">
+        맞습니다, 의심하실 만해요. 하지만 이건 중간 유통 단계를 줄이고, 산지에서 직접 소비자에게 보내기 때문에 가능한 가격입니다. <strong>국내산 한돈 인증 확인 가능하고, 원산지 이력 추적도 됩니다.</strong> 싼 데는 이유가 있는데, 그 이유가 "품질을 낮춰서"가 아니라 "중간 마진을 뺐기 때문"이에요.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Q2. 배송 중에 상하진 않나요?
+        <span class="toggle">+</span>
+      </div>
+      <div class="faq-a">
+        냉장 전용 포장재로 밀봉 후 아이스팩과 함께 발송합니다. 혹시라도 수령 시 상태에 문제가 있으면, 사진 찍어서 연락 주시면 <strong>즉시 교환 또는 환불 처리</strong>해 드립니다. 이때 배송비도 저희가 부담합니다.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Q3. 양이 적은 거 아니에요?
+        <span class="toggle">+</span>
+      </div>
+      <div class="faq-a">
+        100g당 약 950원 수준으로, 마트 국내산 대비 <strong>절반 이하 가격</strong>이에요. 구매하신 분들 후기 보시면 "양도 넉넉하다"는 말씀이 많습니다. <strong>가격이 싼 게 아니라, 마트 가격이 비싼 겁니다.</strong>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Q4. 교환이나 반품은?
+        <span class="toggle">+</span>
+      </div>
+      <div class="faq-a">
+        수령일로부터 <strong>7일 이내 교환/반품 가능</strong>합니다. 품질 불량이나 배송 문제가 있을 경우 반품 배송비까지 판매자가 부담합니다. <strong>한 줄 요약: 문제 있으면 저희가 책임집니다.</strong>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Q5. 배송비 3,500원이 아깝긴 한데...
+        <span class="toggle">+</span>
+      </div>
+      <div class="faq-a">
+        <strong>5만원 이상 주문하시면 배송비가 무료</strong>입니다. 9,500원짜리 5팩이면 47,500원 — 여기에 한 팩만 더 담으면 무료배송 달성이에요. <strong>넉넉히 담아두면 한끼당 가격도 내려가고, 배송비도 아끼고, 일석이조입니다.</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- 안심 보증 카드 -->
+  <div class="guarantee-cards">
+    <div class="guarantee-card">
+      <span class="g-icon">🔄</span>
+      <div class="g-title">교환 보장</div>
+      <div class="g-desc">7일 이내 가능</div>
+    </div>
+    <div class="guarantee-card">
+      <span class="g-icon">❄️</span>
+      <div class="g-title">냉장 배송</div>
+      <div class="g-desc">신선도 유지</div>
+    </div>
+    <div class="guarantee-card">
+      <span class="g-icon">🇰🇷</span>
+      <div class="g-title">국내산 한돈</div>
+      <div class="g-desc">인증 완료</div>
+    </div>
+  </div>
+
+  <!-- 프롬프트 S -->
+  <div class="prompt-toggle">
+    <button class="prompt-btn" onclick="togglePrompt('ps')" style="background:rgba(230,51,18,0.08);color:var(--appetite-red);border-color:rgba(230,51,18,0.2);">
+      <span class="arrow">▸</span> 프롬프트 S: 안심 보증 아이콘
+    </button>
+    <div class="prompt-content on-light" id="ps">
+      <button class="copy-btn" onclick="copyPrompt('ps-text')">복사</button>
+      <div class="prompt-meta"><span class="prompt-id" style="color:var(--appetite-red);">Prompt S</span><span class="prompt-model pro">Nano Banana Pro</span></div>
+      <div class="prompt-text" id="ps-text">Three clean guarantee/trust icons arranged horizontally for an e-commerce product page:
+Icon 1: Exchange/Return guarantee - a circular arrow icon with a checkmark,
+in green (#4A7C3F) color, text below reads "7-Day Return".
+Icon 2: Fresh chilled delivery - a snowflake with a delivery box icon,
+in blue (#3B82F6) color, text below reads "Cold Chain".
+Icon 3: Korean domestic pork certification - a shield with a Korean flag-inspired icon,
+in gold (#D4A017) color, text below reads "Korean Handon".
+Flat design, modern minimalist icons, consistent style across all three.
+White card background with subtle shadow, rounded corners.
+Light cream (#FFF8F0) overall background.
+Aspect ratio 3:1.</div>
+    </div>
+  </div>
+
+  <!-- 안심 테이블 -->
+  <table class="guarantee-table" style="margin-top:24px;">
+    <tr><td>국내산 한돈 인증</td><td>원산지 이력 추적 가능</td></tr>
+    <tr><td>냉장 직배송</td><td>냉장 전용 포장 + 아이스팩</td></tr>
+    <tr><td>품질 불량 시</td><td>100% 교환/환불 + 배송비 판매자 부담</td></tr>
+    <tr><td>교환/반품 기한</td><td>수령 후 7일 이내</td></tr>
+  </table>
+  <div style="text-align:center;font-size:15px;font-weight:600;color:var(--text-dark);margin:16px 0;line-height:1.6;">
+    마음에 안 들면 돌려보내면 돼요.<br>리스크는 저희가 가져갑니다.
+  </div>
+
+  <!-- 주문 프로세스 -->
+  <div style="margin-top:32px;">
+    <div class="order-process">
+      <div class="order-step">
+        <span class="os-num">1</span>
+        <span class="os-icon">🥩</span>
+        <span class="os-text">부위 선택</span>
+      </div>
+      <span class="order-arrow">→</span>
+      <div class="order-step">
+        <span class="os-num">2</span>
+        <span class="os-icon">🔥</span>
+        <span class="os-text">용도 선택</span>
+      </div>
+      <span class="order-arrow">→</span>
+      <div class="order-step">
+        <span class="os-num">3</span>
+        <span class="os-icon">✅</span>
+        <span class="os-text">결제 완료</span>
+      </div>
+    </div>
+    <div class="order-note">3번의 클릭으로 완료!</div>
+  </div>
+
+  <!-- 프롬프트 T -->
+  <div class="prompt-toggle" style="margin-top:16px;">
+    <button class="prompt-btn" onclick="togglePrompt('pt')" style="background:rgba(230,51,18,0.08);color:var(--appetite-red);border-color:rgba(230,51,18,0.2);">
+      <span class="arrow">▸</span> 프롬프트 T: 주문 프로세스
+    </button>
+    <div class="prompt-content on-light" id="pt">
+      <button class="copy-btn" onclick="copyPrompt('pt-text')">복사</button>
+      <div class="prompt-meta"><span class="prompt-id" style="color:var(--appetite-red);">Prompt T</span><span class="prompt-model pro">Nano Banana Pro</span></div>
+      <div class="prompt-text" id="pt-text">A simple 3-step ordering process infographic, horizontal layout:
+Step 1: A selection grid icon showing 4 meat cuts with a finger tapping - "Select Cut"
+Step 2: A toggle switch icon showing "Grilling / Boiling" options - "Select Style"
+Step 3: A shopping cart icon with a checkmark - "Order Complete"
+Right-pointing arrows connecting each step.
+Red (#E63312) numbered circles (1, 2, 3) above each step.
+Clean flat design, modern e-commerce style.
+White background, minimal and clear.
+Aspect ratio 4:1.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 최종 CTA 밴드 -->
+<div class="final-cta-band">
+  <div class="fc-headline">
+    여기까지 읽으셨으면,<br>사실 마음은 이미 정해지셨죠?
+  </div>
+  <div style="font-size:15px;color:var(--warm-cream);line-height:1.8;margin-bottom:24px;">
+    국내산 한돈 냉장육 4종,<br>
+    삼겹살 / 오겹살 / 목살 / 항정살 중 골라담고,<br>
+    구이용이든 수육용이든 내 입맛대로 선택하고,<br>
+    <strong style="color:var(--appetite-red);">9,500원</strong>에 집 앞까지 냉장 배송.
+  </div>
+  <div class="fc-price">
+    <span class="fc-original">15,500원</span>
+    <span class="fc-sale">→ 9,500원 (39% OFF)</span>
+  </div>
+  <div class="fc-tags">국내산 한돈 | 냉장 신선육 | 4종 골라담기</div>
+  <button class="cta-button large" style="margin-top:24px;">지금 바로 골라담기</button>
+  <div class="free-ship-note">50,000원 이상 주문 시 배송비 무료!</div>
+  <div class="fc-last">
+    "다음에 사야지" 하다가 정가로 돌아가면,<br>
+    오늘의 6,000원은 다시 안 옵니다.
+  </div>
+</div>
+
+</div><!-- /mobile-container -->
+
+<!-- 스티키 CTA -->
+<div class="sticky-cta">
+  <div class="sticky-price">
+    <span class="sp-label">한돈 4종</span><br>
+    <span class="sp-original">15,500원</span>
+    <span class="sp-sale">9,500</span><span style="font-size:16px;font-weight:700;color:var(--appetite-red);">원</span>
+  </div>
+  <button class="sticky-btn">지금 골라담기</button>
+</div>
+
+<!-- 푸터 -->
+<div class="footer">
+  상세페이지 스토리보드 — 국내산 한돈 냉장 돼지고기 4종 골라담기<br>
+  썸네일 3종 + 6-ZONE 퍼널 | 나노 바나나 프롬프트 22종 (T1~T2, A~T) | 720px Mobile-First<br>
+  Generated by AI Agent Team on 2026-02-25<br><br>
+  <a href="https://www.hamoa.co.kr/Goods/Detail/SHA68719508" target="_blank">원본 상품 페이지 →</a>
+</div>
+
+<script>
+function togglePrompt(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('show');
+  const btn = el.previousElementSibling || el.closest('.prompt-toggle').querySelector('.prompt-btn');
+  if (btn) {
+    const arrow = btn.querySelector('.arrow');
+    if (arrow) arrow.textContent = el.classList.contains('show') ? '▾' : '▸';
+  }
+}
+
+function copyPrompt(id) {
+  const text = document.getElementById(id).textContent.trim();
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById(id).closest('.prompt-content').querySelector('.copy-btn');
+    const original = btn.textContent;
+    btn.textContent = '복사됨!';
+    setTimeout(() => btn.textContent = original, 1500);
+  });
+}
+
+function toggleFaq(el) {
+  el.parentElement.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>

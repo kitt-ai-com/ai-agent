@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>상세페이지 스토리보드 — 멕시코산 생LA 꽃갈비 2kg</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --wine-red: #8B1A1A;
+    --rose-red: #C0392B;
+    --craft-beige: #D4A574;
+    --ivory: #FAF3E8;
+    --white: #FFFFFF;
+    --gold: #FFD700;
+    --cta-red: #E63946;
+    --charcoal: #2D2D2D;
+    --warm-gray: #6B6B6B;
+  }
+
+  body {
+    font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f0f0f0;
+    color: var(--charcoal);
+    line-height: 1.7;
+  }
+
+  /* 헤더 */
+  .header {
+    background: var(--wine-red);
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header h1 { font-size: 16px; font-weight: 700; }
+  .header .score { font-size: 13px; color: var(--gold); margin-top: 4px; }
+
+  /* 모바일 컨테이너 */
+  .mobile-container {
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--white);
+    box-shadow: 0 0 40px rgba(0,0,0,0.15);
+  }
+
+  /* 존 구분 라벨 */
+  .zone-label {
+    background: var(--wine-red);
+    color: var(--white);
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .zone-label span {
+    color: var(--gold);
+    font-size: 11px;
+    display: block;
+    margin-top: 2px;
+    font-weight: 400;
+  }
+
+  /* 공통 섹션 */
+  .section {
+    padding: 40px;
+  }
+
+  /* ZONE 1 */
+  .zone1 {
+    position: relative;
+  }
+  .hero-image {
+    width: 100%;
+    height: 640px;
+    background: linear-gradient(135deg, #3d0c0c 0%, #5a1515 40%, #8B1A1A 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(transparent, rgba(139,26,26,0.85));
+  }
+  .hero-placeholder {
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    font-size: 14px;
+    z-index: 1;
+  }
+  .hero-placeholder .icon { font-size: 48px; margin-bottom: 12px; }
+  .badge-row {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+  }
+  .discount-badge {
+    background: var(--cta-red);
+    color: var(--white);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .origin-tag {
+    background: rgba(0,0,0,0.5);
+    color: var(--white);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+  }
+  .zone1-text {
+    padding: 32px 40px 40px;
+    background: var(--white);
+  }
+  .zone1-text .hook-badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .hook-badge {
+    background: var(--ivory);
+    color: var(--wine-red);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .main-headline {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+  }
+  .price-area {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .price-original {
+    font-size: 18px;
+    color: var(--warm-gray);
+    text-decoration: line-through;
+  }
+  .price-sale {
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--cta-red);
+  }
+  .price-won {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--cta-red);
+  }
+  .sub-copy {
+    font-size: 15px;
+    color: var(--warm-gray);
+    margin-top: 8px;
+  }
+
+  /* ZONE 2 */
+  .zone2 {
+    background: var(--ivory);
+    padding: 48px 40px;
+  }
+  .zone2 h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 24px;
+    line-height: 1.4;
+  }
+  .checklist {
+    list-style: none;
+    margin-bottom: 32px;
+  }
+  .checklist li {
+    padding: 12px 0;
+    font-size: 15px;
+    line-height: 1.7;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .checklist li::before {
+    content: '☑';
+    margin-right: 8px;
+    color: var(--cta-red);
+  }
+  .compare-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .compare-card {
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .compare-img {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 16px;
+  }
+  .compare-img.bad {
+    background: linear-gradient(135deg, #888 0%, #aaa 100%);
+  }
+  .compare-img.good {
+    background: linear-gradient(135deg, #6b1515 0%, #a52020 100%);
+  }
+  .compare-label {
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .compare-label.bad { color: var(--cta-red); }
+  .compare-label.good { color: #27ae60; }
+  .loss-box {
+    background: var(--white);
+    border-left: 4px solid var(--cta-red);
+    padding: 20px 24px;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 24px;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  .bridge-copy {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--wine-red);
+    padding: 16px 0;
+  }
+
+  /* ZONE 3 */
+  .zone3 {
+    background: var(--white);
+    padding: 48px 40px;
+  }
+  .zone3 h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--wine-red);
+    margin-bottom: 24px;
+  }
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 32px;
+    font-size: 13px;
+  }
+  .compare-table th {
+    background: var(--wine-red);
+    color: var(--white);
+    padding: 10px 8px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .compare-table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    font-size: 13px;
+  }
+  .compare-table tr td:first-child {
+    font-weight: 600;
+    text-align: left;
+    background: var(--ivory);
+  }
+  .compare-table .highlight {
+    color: var(--cta-red);
+    font-weight: 700;
+  }
+  .usp-card {
+    background: var(--ivory);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .usp-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--wine-red);
+    margin-bottom: 8px;
+  }
+  .usp-card p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .anchor-box {
+    background: linear-gradient(135deg, var(--ivory) 0%, #fff 100%);
+    border: 2px solid var(--gold);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    margin-top: 24px;
+  }
+  .anchor-step {
+    font-size: 14px;
+    color: var(--warm-gray);
+    margin-bottom: 4px;
+  }
+  .anchor-step.strike {
+    text-decoration: line-through;
+  }
+  .anchor-final {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--cta-red);
+    margin: 12px 0;
+  }
+  .anchor-sub {
+    font-size: 15px;
+    color: var(--charcoal);
+    font-weight: 600;
+  }
+
+  /* 실중량 이미지 */
+  .scale-image {
+    width: 100%;
+    height: 240px;
+    background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--warm-gray);
+    font-size: 14px;
+    text-align: center;
+    margin: 24px 0;
+  }
+
+  /* ZONE 4 */
+  .zone4 {
+    background: var(--ivory);
+    padding: 48px 40px;
+  }
+  .zone4 h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+  }
+  .stars {
+    color: var(--gold);
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+  .review-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .review-card .review-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .review-card .review-stars {
+    color: var(--gold);
+    font-size: 14px;
+  }
+  .review-card .review-body {
+    font-size: 14px;
+    color: var(--charcoal);
+    line-height: 1.7;
+    margin: 8px 0;
+  }
+  .review-card .reviewer {
+    font-size: 13px;
+    color: var(--warm-gray);
+  }
+  .mexico-box {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 24px;
+    border-left: 4px solid var(--craft-beige);
+  }
+  .mexico-box h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+  }
+  .trust-badges {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--wine-red);
+  }
+  .trust-badge .icon {
+    font-size: 18px;
+  }
+
+  /* 시나리오 */
+  .scenario-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .scenario-card {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .scenario-img {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    text-align: center;
+    padding: 16px;
+  }
+  .scenario-img.family {
+    background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+  }
+  .scenario-img.camping {
+    background: linear-gradient(135deg, #2E8B57 0%, #3CB371 100%);
+  }
+  .scenario-text {
+    padding: 16px;
+    background: var(--white);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--charcoal);
+  }
+
+  /* ZONE 5 */
+  .zone5 {
+    background: var(--wine-red);
+    color: var(--white);
+    padding: 48px 40px;
+    text-align: center;
+  }
+  .zone5 h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .countdown {
+    font-size: 14px;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+  .price-card {
+    background: var(--white);
+    color: var(--charcoal);
+    border-radius: 16px;
+    padding: 32px 24px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .price-card .product-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--charcoal);
+  }
+  .price-card .price-line {
+    font-size: 14px;
+    color: var(--warm-gray);
+    margin-bottom: 4px;
+  }
+  .price-card .price-line.strike {
+    text-decoration: line-through;
+  }
+  .price-card .price-final {
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--cta-red);
+    margin: 12px 0;
+  }
+  .price-card .price-unit {
+    font-size: 13px;
+    color: var(--warm-gray);
+  }
+  .benefits {
+    text-align: left;
+    margin-bottom: 24px;
+  }
+  .benefits div {
+    padding: 6px 0;
+    font-size: 14px;
+  }
+  .viewers {
+    font-size: 14px;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .cta-button {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(90deg, var(--cta-red), var(--rose-red));
+    color: var(--white);
+    border: none;
+    border-radius: 32px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(230,57,70,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(230,57,70,0.5);
+  }
+  .cta-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 12px;
+  }
+
+  /* ZONE 6 */
+  .zone6 {
+    background: var(--white);
+    padding: 48px 40px;
+  }
+  .zone6 h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--wine-red);
+    margin-bottom: 24px;
+  }
+  .faq-item {
+    background: var(--ivory);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+  }
+  .faq-q {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--wine-red);
+    margin-bottom: 8px;
+  }
+  .faq-a {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--charcoal);
+  }
+  .guarantee-box {
+    background: var(--ivory);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 24px 0;
+  }
+  .guarantee-box h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 16px;
+  }
+  .guarantee-item {
+    padding: 6px 0;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .final-cta {
+    text-align: center;
+    background: var(--wine-red);
+    border-radius: 16px;
+    padding: 32px 24px;
+    margin-top: 32px;
+  }
+  .final-cta h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .final-cta p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 16px;
+  }
+  .final-cta .urgency {
+    font-size: 13px;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .final-cta .cta-button {
+    margin-top: 8px;
+  }
+  .final-cta .cta-footer {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 12px;
+  }
+
+  /* 나노바나나 토글 */
+  details {
+    margin-top: 12px;
+    border: 1px dashed var(--craft-beige);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  details summary {
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--wine-red);
+    cursor: pointer;
+    background: rgba(212,165,116,0.1);
+    user-select: none;
+  }
+  details summary:hover {
+    background: rgba(212,165,116,0.2);
+  }
+  details[open] summary {
+    border-bottom: 1px dashed var(--craft-beige);
+  }
+  .prompt-content {
+    padding: 16px;
+    background: #fafafa;
+  }
+  .prompt-content .model-tag {
+    display: inline-block;
+    background: var(--wine-red);
+    color: var(--white);
+    padding: 2px 10px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .prompt-box {
+    background: var(--charcoal);
+    color: #e0e0e0;
+    padding: 16px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+    position: relative;
+    margin: 8px 0;
+  }
+  .copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255,255,255,0.15);
+    color: var(--white);
+    border: none;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .copy-btn:hover {
+    background: rgba(255,255,255,0.3);
+  }
+  .prompt-tip {
+    font-size: 12px;
+    color: var(--warm-gray);
+    margin-top: 8px;
+    line-height: 1.6;
+  }
+
+  /* 부록 */
+  .appendix {
+    background: #f8f8f8;
+    padding: 48px 40px;
+  }
+  .appendix h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 24px;
+  }
+  .appendix h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--wine-red);
+    margin: 24px 0 12px;
+  }
+  .check-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    font-size: 13px;
+  }
+  .check-table th {
+    background: var(--charcoal);
+    color: var(--white);
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .check-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .pass { color: #27ae60; font-weight: 700; }
+  .check-score {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #27ae60;
+    padding: 16px;
+    background: var(--white);
+    border-radius: 12px;
+    margin-bottom: 24px;
+  }
+
+  /* 스티키 CTA */
+  .sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 720px;
+    background: var(--white);
+    border-top: 1px solid #eee;
+    padding: 12px 24px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+  }
+  .sticky-price {
+    font-size: 12px;
+    color: var(--warm-gray);
+  }
+  .sticky-price strong {
+    display: block;
+    font-size: 20px;
+    color: var(--cta-red);
+    font-weight: 900;
+  }
+  .sticky-btn {
+    background: linear-gradient(90deg, var(--cta-red), var(--rose-red));
+    color: var(--white);
+    border: none;
+    padding: 12px 32px;
+    border-radius: 24px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(230,57,70,0.3);
+  }
+
+  /* 푸터 여백 (스티키 CTA 가림 방지) */
+  .footer-spacer {
+    height: 80px;
+  }
+</style>
+</head>
+<body>
+
+<!-- 헤더 -->
+<div class="header">
+  <h1>상세페이지 스토리보드 — 멕시코산 생LA 꽃갈비 2kg</h1>
+  <div class="score">검수 점수: 100/100 (9/9 PASS)</div>
+</div>
+
+<div class="mobile-container">
+
+  <!-- ═══════ ZONE 1: STOP ═══════ -->
+  <div class="zone-label">
+    ZONE 1 · 후킹 (STOP)
+    <span>0~3초 · 스크롤 멈추기 · 4U 카피 공식</span>
+  </div>
+
+  <div class="zone1">
+    <div class="hero-image">
+      <div class="badge-row">
+        <div class="discount-badge">15% OFF</div>
+        <div class="origin-tag">멕시코산</div>
+      </div>
+      <div class="hero-placeholder">
+        <div class="icon">📷</div>
+        도마 위 LA꽃갈비 2kg 풀샷<br>
+        45도 앵글, 생고기 클로즈업<br>
+        선홍빛 살코기 + 하얀 뼈 대비
+      </div>
+    </div>
+
+    <details>
+      <summary>🍌 나노바나나 프롬프트 보기 — 히어로 이미지</summary>
+      <div class="prompt-content">
+        <span class="model-tag">Nano Banana</span>
+        <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">📋 복사</button>A stunning overhead 45-degree angle food photography shot of raw LA-style
+beef short ribs (cross-cut galbi) arranged beautifully on a dark wooden
+cutting board. The meat shows vibrant deep red color with clean white bones
+visible. No visible fat trimmings - only lean meat attached to bones.
+The ribs are spread out generously to show abundance (2kg worth).
+Small sprigs of fresh rosemary and whole black peppercorns scattered
+around as minimal garnish. Dark moody background with a piece of brown
+kraft paper underneath. Natural side lighting from the left creating
+dramatic shadows and highlighting the meat's fresh texture and moisture.
+Shot with a macro lens showing fine meat grain detail.
+Professional food photography style, editorial quality.
+
+Aspect Ratio: 3:4 (720x960)</div>
+        <div class="prompt-tip">💡 수정 팁: 양이 부족해 보이면 "abundant quantity, filling the entire cutting board" 강조</div>
+      </div>
+    </details>
+
+    <div class="zone1-text">
+      <div class="hook-badges">
+        <span class="hook-badge">🔴 생물 신선</span>
+        <span class="hook-badge">비계 제로</span>
+        <span class="hook-badge">kg당 27,500원</span>
+      </div>
+      <h2 class="main-headline">비계 빼고,<br>살코기만 2kg.</h2>
+      <div class="price-area">
+        <span class="price-original">65,000원</span>
+        <span class="price-sale">55,000</span><span class="price-won">원</span>
+      </div>
+      <div class="sub-copy">멕시코산 생LA 꽃갈비 | 얼리지 않은 신선 배송 | 무료배송</div>
+    </div>
+  </div>
+
+  <!-- ═══════ ZONE 2: EMPATHY ═══════ -->
+  <div class="zone-label">
+    ZONE 2 · 문제 인식 + 공감 (EMPATHY)
+    <span>3~10초 · "나도 그래!" · PAS 카피 공식</span>
+  </div>
+
+  <div class="zone2">
+    <h2>혹시 이런 경험,<br>있으시죠?</h2>
+
+    <ul class="checklist">
+      <li>갈비 샀는데 <strong>반이 비계</strong>라서 실제 먹을 살코기가 반도 안 됐던 적</li>
+      <li><strong>냉동 갈비</strong> 해동했더니 핏물에 육즙까지 빠져서 퍽퍽했던 적</li>
+      <li>마트에서 kg당 <strong>35,000~40,000원</strong> 주고 샀는데 양이 너무 적었던 적</li>
+      <li>"이 가격이면 차라리 <strong>외식하지</strong>" 후회했던 적</li>
+    </ul>
+
+    <div class="compare-images">
+      <div class="compare-card">
+        <div class="compare-img bad">
+          📷<br>비계 많은 갈비<br>회색빛, 지방 과다
+        </div>
+        <div class="compare-label bad">❌ 비계 포함 2kg<br>실제 살코기 1.4kg</div>
+      </div>
+      <div class="compare-card">
+        <div class="compare-img good">
+          📷<br>우리 갈비<br>선홍빛 살코기 가득
+        </div>
+        <div class="compare-label good">✅ 순살+뼈 2kg<br>먹을 수 있는 살코기 2kg</div>
+      </div>
+    </div>
+
+    <details>
+      <summary>🍌 나노바나나 프롬프트 보기 — 비교 이미지 2종</summary>
+      <div class="prompt-content">
+        <p style="font-size:13px; font-weight:700; margin-bottom:8px;">이미지 A: 비계 많은 갈비 (부정적)</p>
+        <span class="model-tag">Nano Banana</span>
+        <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">📋 복사</button>A disappointing photo of raw beef short ribs with excessive white fat
+and gristle covering most of the meat surface. The fat-to-meat ratio
+is roughly 40-50% fat. The meat color is dull pinkish-gray, looking
+unappetizing. Placed on a plain white styrofoam tray like cheap
+supermarket packaging. Overhead shot, flat fluorescent lighting.
+
+Aspect Ratio: 1:1 (640x640)</div>
+
+        <p style="font-size:13px; font-weight:700; margin: 16px 0 8px;">이미지 B: 우리 갈비 (긍정적)</p>
+        <span class="model-tag">Nano Banana</span>
+        <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">📋 복사</button>An appetizing close-up photo of premium raw LA-style beef short ribs
+with minimal fat. The cross-cut bones are clearly visible with deep red,
+lean meat tightly attached. Almost no white fat visible - just pure
+meat and bone. Placed on dark slate board with warm natural lighting
+from the side. Rich, vibrant red color that screams freshness.
+
+Aspect Ratio: 1:1 (640x640)</div>
+        <div class="prompt-tip">💡 두 이미지의 크기와 앵글을 최대한 동일하게 맞출 것 (비교 효과 극대화)</div>
+      </div>
+    </details>
+
+    <div class="loss-box">
+      비계 30%가 포함된 타사 갈비 2kg,<br>
+      실제 먹을 수 있는 살코기는 겨우 <strong>1.4kg.</strong><br><br>
+      그 비계값으로 매번 <strong style="color: var(--cta-red);">약 18,000원을 그냥 버리고 계신 거예요.</strong>
+    </div>
+
+    <div class="bridge-copy">
+      "비계에 돈 내지 마세요."<br>
+      저희가 그 문제, 확실하게 해결했습니다.
+    </div>
+  </div>
+
+  <!-- ═══════ ZONE 3: PROOF ═══════ -->
+  <div class="zone-label">
+    ZONE 3 · 솔루션 (PROOF)
+    <span>10~30초 · "괜찮은데?" · BAB + 가격 앵커링</span>
+  </div>
+
+  <div class="zone3">
+    <h2>같은 2kg인데,<br>왜 이렇게 다를까요?</h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>우리 갈비</th>
+          <th>냉동 (타사)</th>
+          <th>마트</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>상태</td>
+          <td class="highlight">생물 (신선)</td>
+          <td>냉동</td>
+          <td>냉장</td>
+        </tr>
+        <tr>
+          <td>비계</td>
+          <td class="highlight">없음</td>
+          <td>포함</td>
+          <td>포함</td>
+        </tr>
+        <tr>
+          <td>실살코기</td>
+          <td class="highlight">2kg 전부</td>
+          <td>약 1.4kg</td>
+          <td>약 1.4kg</td>
+        </tr>
+        <tr>
+          <td>kg당 가격</td>
+          <td class="highlight">27,500원</td>
+          <td>30,000~35,000</td>
+          <td>35,000~40,000</td>
+        </tr>
+        <tr>
+          <td>배송비</td>
+          <td class="highlight">무료</td>
+          <td>3,000~5,000</td>
+          <td>직접 방문</td>
+        </tr>
+        <tr>
+          <td>평점</td>
+          <td class="highlight">★ 5.0/5</td>
+          <td>4.2~4.5</td>
+          <td>확인 불가</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="usp-card">
+      <h3>1. 비계 없는 실중량 2kg</h3>
+      <p>뼈와 살코기 무게로만 정직하게 2kg.<br><strong>비계에 돈 내는 일, 이제 없습니다.</strong></p>
+    </div>
+    <div class="usp-card">
+      <h3>2. 생물 신선 배송 (냉동 X)</h3>
+      <p>한 번도 얼리지 않았습니다.<br><strong>정육점에서 방금 썰어준 그 신선함 그대로</strong> 집 앞까지.<br>해동 필요 없이 받자마자 바로 그릴 위에 올리세요.</p>
+    </div>
+    <div class="usp-card">
+      <h3>3. kg당 27,500원 압도적 가성비</h3>
+      <p>마트 갈비 1kg 살 돈이면, <strong>여기선 2kg 삽니다.</strong><br>외식 갈비 1인분보다 <strong>4인 가족이 실컷 먹는 게 더 쌉니다.</strong></p>
+    </div>
+
+    <div class="scale-image">
+      📷 저울 위 갈비 실중량 인증 사진<br>
+      디지털 저울 "2.00 kg" 표시<br>
+      비계 제거 후 순살+뼈 정직한 2kg
+    </div>
+
+    <details>
+      <summary>🍌 나노바나나 프롬프트 보기 — 저울 인증 + 인포그래픽</summary>
+      <div class="prompt-content">
+        <p style="font-size:13px; font-weight:700; margin-bottom:8px;">이미지 A: 저울 위 실중량 인증</p>
+        <span class="model-tag">Nano Banana</span>
+        <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">📋 복사</button>A clear, well-lit photo of raw LA-style beef short ribs placed on a
+modern digital kitchen scale. The scale display clearly shows "2.00 kg"
+in bright digits. The meat is neatly stacked showing lean red meat with
+visible bone cross-sections and minimal fat. Clean white marble countertop.
+Bright, even lighting with soft shadows. Shot from slightly elevated
+front angle (about 30 degrees).
+
+Aspect Ratio: 16:9 (640x360)</div>
+
+        <p style="font-size:13px; font-weight:700; margin: 16px 0 8px;">이미지 B: 가격 비교 인포그래픽</p>
+        <span class="model-tag">Nano Banana Pro</span>
+        <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">📋 복사</button>A clean, modern infographic comparing meat prices. Minimalist design
+with warm ivory (#FAF3E8) background. Three vertical bars:
+- Left (tall, gray #6B6B6B): "마트" "40,000원/kg"
+- Middle (medium, #C0392B): "정가" strikethrough "65,000원"
+- Right (short, bold #E63946): "할인가" "27,500원/kg"
+Gold (#FFD700) badge "15% OFF".
+
+Aspect Ratio: 4:3 (640x480)</div>
+        <div class="prompt-tip">💡 한글 텍스트가 부정확할 수 있으므로 막대 그래프만 생성 후 텍스트는 디자인 툴에서 오버레이</div>
+      </div>
+    </details>
+
+    <div class="anchor-box">
+      <div class="anchor-step">마트에서 사면 → 약 70,000~80,000원</div>
+      <div class="anchor-step strike">저희 정가 → 65,000원</div>
+      <div class="anchor-step">↓ 15% OFF</div>
+      <div class="anchor-final">55,000<span style="font-size:24px">원</span></div>
+      <div class="anchor-sub">4인 가족 기준 1인분 단 13,750원<br>갈비집 외식의 절반도 안 되는 가격</div>
+    </div>
+  </div>
+
+  <!-- ═══════ ZONE 4: TRUST + DESIRE ═══════ -->
+  <div class="zone-label">
+    ZONE 4 · 신뢰 + 욕구 (TRUST & DESIRE)
+    <span>30~60초 · "믿을 만하네, 먹고 싶다!" · AIDA Desire + 사회적 증거</span>
+  </div>
+
+  <div class="zone4">
+    <h2>8명 전원, 만점.</h2>
+    <div class="stars">★★★★★ 5.0/5</div>
+
+    <div class="review-card">
+      <div class="review-title">"비계가 진짜 하나도 없어요" <span class="review-stars">★★★★★</span></div>
+      <div class="review-body">"마트에서 사던 갈비랑 완전 달라요. 뜯어보니까 살코기만 가득. 아이들이 엄마 또 시켜달라고 난리예요."</div>
+      <div class="reviewer">— 구매자 김**</div>
+    </div>
+    <div class="review-card">
+      <div class="review-title">"생물이라 육즙이 살아있어요" <span class="review-stars">★★★★★</span></div>
+      <div class="review-body">"냉동 갈비만 먹다가 이거 먹으니까 차원이 다릅니다. 구울 때 육즙이 지글지글 흘러내려요. 무조건 재구매."</div>
+      <div class="reviewer">— 구매자 이**</div>
+    </div>
+    <div class="review-card">
+      <div class="review-title">"이 가격에 이 퀄리티? 말이 됩니까" <span class="review-stars">★★★★★</span></div>
+      <div class="review-body">"솔직히 반신반의하고 시켰는데, 포장 상태도 좋고 양도 진짜 많아요. 남편이 이거 어디서 산 거냐고 놀랐어요."</div>
+      <div class="reviewer">— 구매자 박**</div>
+    </div>
+
+    <div class="mexico-box">
+      <h3>"멕시코산, 괜찮은 거 맞아요?"</h3>
+      <p style="font-size:14px; line-height:1.8;">
+        당연히 그렇게 생각하실 수 있어요.<br><br>
+        멕시코산 LA갈비는 미국과 <strong>동일한 품종</strong>(앵거스 교잡종)을
+        <strong>동일한 사육 환경과 USDA 기준</strong>으로 키웁니다.<br><br>
+        차이는 딱 하나, <strong>유통 거리가 짧아서 가격이 낮은 것.</strong><br>
+        품질은 같고, 가격만 다릅니다.
+      </p>
+    </div>
+
+    <div class="trust-badges">
+      <div class="trust-badge"><span class="icon">✅</span> HACCP 인증 위생 시설</div>
+      <div class="trust-badge"><span class="icon">✅</span> 원산지 증명서 보유</div>
+      <div class="trust-badge"><span class="icon">✅</span> 당일 손질 → 당일 발송</div>
+      <div class="trust-badge"><span class="icon">✅</span> 아이스박스 냉장 포장</div>
+    </div>
+
+    <h2 style="margin-top:40px;">주말 저녁, 온 가족이<br>기다리던 그 맛</h2>
+
+    <div class="scenario-grid">
+      <div class="scenario-card">
+        <div class="scenario-img family">
+          📷<br>가족 4인 식탁<br>따뜻한 저녁 갈비 파티
+        </div>
+        <div class="scenario-text">가족과 함께하는<br>따뜻한 식탁</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scenario-img camping">
+          📷<br>캠핑장 숯불 갈비<br>친구들과 야외 파티
+        </div>
+        <div class="scenario-text">캠핑장에서<br>즐기는 숯불 갈비</div>
+      </div>
+    </div>
+
+    <details>
+      <summary>🍌 나노바나나 프롬프트 보기 — 그릴 + 시나리오 3종</summary>
+      <div class="prompt-content">
+        <p style="font-size:13px; font-weight:700; margin-bottom:8px;">이미지 A: 그릴 위 갈비 (메인 욕구 자극)</p>
+        <span class="model-tag">Nano Banana</span>
+        <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">📋 복사</button>A mouth-watering close-up photograph of LA-style beef short ribs
+(galbi) being grilled on a charcoal barbecue grill. The meat is
+perfectly seared with beautiful grill marks in a crosshatch pattern.
+Juices are visibly bubbling on the surface of the meat. Wisps of
+aromatic smoke rising from the grill. The charcoal underneath glows
+orange-red. Gorgeous caramelized golden-brown exterior with hints
+of pink juiciness. Shallow depth of field.
+
+Aspect Ratio: 4:3 (720x540)</div>
+
+        <p style="font-size:13px; font-weight:700; margin: 16px 0 8px;">이미지 B: 가족 식탁 시나리오</p>
+        <span class="model-tag">Nano Banana</span>
+        <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">📋 복사</button>A warm, inviting photograph of a Korean family dinner scene. Round
+wooden dining table with portable gas grill in center, grilling
+LA-style short ribs. Table set with banchan, rice bowls, lettuce
+wraps, ssamjang sauce. Steam rising. Warm pendant lighting.
+Shot from elevated 45-degree angle. No people visible.
+
+Aspect Ratio: 1:1 (640x640)</div>
+
+        <p style="font-size:13px; font-weight:700; margin: 16px 0 8px;">이미지 C: 캠핑장 시나리오</p>
+        <span class="model-tag">Nano Banana</span>
+        <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">📋 복사</button>An outdoor camping barbecue scene at golden hour. Portable camping
+grill with LA-style beef short ribs sizzling on top. Camping chairs
+and tent in soft-focus background. Pine trees and warm sunset light.
+Beer bottles and paper plates. Charcoal smoke mixing with golden
+evening light. Low angle shot.
+
+Aspect Ratio: 1:1 (640x640)</div>
+        <div class="prompt-tip">💡 연기 과하면 "subtle thin wisps of smoke"로 줄이기 / 캠핑이 화려하면 "simple casual camping, not glamping" 추가</div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ═══════ ZONE 5: CONVERSION ═══════ -->
+  <div class="zone-label">
+    ZONE 5 · 전환 유도 (CONVERSION)
+    <span>60초~ · "지금 사야겠다!" · FOMO + 손실 회피</span>
+  </div>
+
+  <div class="zone5">
+    <h2>지금 이 가격,<br>언제까지일지 모릅니다.</h2>
+    <div class="countdown">원육 시세는 매주 변동됩니다. 이 가격은 현재 입고분 한정입니다.</div>
+
+    <div class="price-card">
+      <div class="product-name">멕시코산 생LA 꽃갈비 2kg</div>
+      <div class="price-line">마트 평균 → 약 70,000~80,000원</div>
+      <div class="price-line">갈비 외식 4인 → 약 80,000~100,000원</div>
+      <div class="price-line strike">저희 정가 → 65,000원</div>
+      <div style="color: var(--cta-red); font-size: 14px; font-weight: 600; margin-top: 8px;">↓ 15% OFF</div>
+      <div class="price-final">55,000<span style="font-size:28px">원</span></div>
+      <div class="price-unit">+ 무료배송 (3,000원 절약) + 후기 작성 시 최대 500P</div>
+    </div>
+
+    <div class="benefits">
+      <div>🎁 포토 후기 작성 시 <strong>500P 적립</strong></div>
+      <div>🎁 일반 후기 작성 시 <strong>100P 적립</strong></div>
+      <div>🎁 <strong>무료배송</strong> (배송비 걱정 제로)</div>
+      <div>🎁 <strong>당일발송</strong> (오전 9시 이전 주문)</div>
+    </div>
+
+    <div class="viewers">지금 N명이 이 상품을 보고 있습니다.</div>
+
+    <button class="cta-button">55,000원에 생LA갈비 2kg 받아보기</button>
+
+    <div class="cta-sub">무료배송 | 당일발송 | 7일 내 교환/반품 | 불량 시 배송비 무료</div>
+
+    <details style="border-color: rgba(255,255,255,0.2); margin-top: 24px;">
+      <summary style="color: var(--gold); background: rgba(255,255,255,0.05);">🍌 나노바나나 프롬프트 보기 — CTA 배경</summary>
+      <div class="prompt-content">
+        <span class="model-tag">Nano Banana</span>
+        <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">📋 복사</button>A dramatic dark food photography background showing edge of a charcoal
+grill with glowing embers and subtle smoke. Deep wine red and black
+tones. Very shallow depth of field. Warm red and orange glow from
+charcoal. Large empty dark area in center for text overlay.
+
+Aspect Ratio: 3:4 (720x960)</div>
+        <div class="prompt-tip">💡 이미지 위에 반투명 오버레이(#8B1A1A, opacity 70%) 적용 후 텍스트 배치</div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ═══════ ZONE 6: OBJECTION HANDLING ═══════ -->
+  <div class="zone-label">
+    ZONE 6 · 반론 처리 (OBJECTION HANDLING)
+    <span>마지막 · 의심 해소 · PAS 반복</span>
+  </div>
+
+  <div class="zone6">
+    <h2>구매 전,<br>이것만 확인하세요.</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">Q1. 멕시코산 LA갈비, 품질이 괜찮은 건가요?</div>
+      <div class="faq-a">네, 걱정 안 하셔도 됩니다. 멕시코산 소는 미국과 <strong>동일 품종(앵거스 교잡종)</strong>이고, <strong>USDA 기준에 맞춰 사육</strong>합니다. 품질은 같고, 유통 거리가 짧아서 가격만 낮은 거예요. 쉽게 말해, <strong>같은 고기를 더 싸게 드시는 겁니다.</strong></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q2. 2kg이면 너무 많지 않나요?</div>
+      <div class="faq-a">4인 가족 기준 한 끼에 충분히 드실 양이에요. 혹시 남으시면 <strong>소분해서 냉동 보관</strong>하시면 됩니다. 1kg은 당일, 1kg은 다음 주에. <strong>2번에 나눠 드시면 1회당 27,500원.</strong></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q3. 배송 중에 상하지 않나요?</div>
+      <div class="faq-a"><strong>아이스박스 + 아이스팩 냉장 특수 포장</strong>으로 배송합니다. 당일 손질 → <strong>당일 바로 발송</strong>(오전 9시 이전 주문). 수령 시 문제가 있으면 <strong>즉시 교환/재발송</strong> 해드립니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q4. 마음에 안 들면 반품할 수 있나요?</div>
+      <div class="faq-a">물론이죠. <strong>배송 후 7일 이내 교환/반품 가능</strong>합니다. 상품 불량일 경우 <strong>반품 배송비도 저희가 부담</strong>해요.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q5. 배송은 얼마나 걸리나요? 배송비는요?</div>
+      <div class="faq-a"><strong>배송비는 무료</strong>입니다. 오전 9시 이전 주문 시 <strong>당일 발송</strong>, 보통 <strong>1~2일 내 수령</strong> 가능해요.</div>
+    </div>
+
+    <details>
+      <summary>🍌 나노바나나 프롬프트 보기 — 포장 사진 + 아이콘</summary>
+      <div class="prompt-content">
+        <p style="font-size:13px; font-weight:700; margin-bottom:8px;">이미지 A: 배송 포장 사진</p>
+        <span class="model-tag">Nano Banana</span>
+        <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">📋 복사</button>A clean product packaging photo showing a premium insulated shipping
+box (styrofoam cooler) opened to reveal vacuum-sealed packages of
+raw beef short ribs inside. Ice packs visible around sealed meat
+packages. Deep red color through clear packaging. Clean white
+kitchen counter. Bright, clean studio lighting.
+
+Aspect Ratio: 2:1 (640x320)</div>
+
+        <p style="font-size:13px; font-weight:700; margin: 16px 0 8px;">이미지 B: 보증 아이콘 세트 (4종)</p>
+        <span class="model-tag">Nano Banana Pro</span>
+        <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">📋 복사</button>Four minimalist line-art icons in horizontal row on white background.
+Deep wine red (#8B1A1A), thin consistent line weight:
+1. Delivery truck with checkmark
+2. Clock with speed arrow
+3. Return arrow circle
+4. Snowflake inside shield
+
+Aspect Ratio: 4:1 (640x160)</div>
+        <div class="prompt-tip">💡 아이콘은 AI보다 Figma/Canva에서 직접 제작하는 것이 더 일관적</div>
+      </div>
+    </details>
+
+    <div class="guarantee-box">
+      <h3>저희가 약속드립니다.</h3>
+      <div class="guarantee-item">✅ <strong>무료배송</strong> — 배송비 부담 제로</div>
+      <div class="guarantee-item">✅ <strong>당일발송</strong> — 오전 9시 이전 주문 시</div>
+      <div class="guarantee-item">✅ <strong>7일 내 교환/반품</strong> — 마음이 바뀌어도 OK</div>
+      <div class="guarantee-item">✅ <strong>불량 시 배송비 무료</strong> — 품질 문제는 저희 책임</div>
+      <div class="guarantee-item">✅ <strong>신선도 보장</strong> — 아이스박스 냉장 특수 포장</div>
+    </div>
+
+    <div class="final-cta">
+      <h3>비계 없는 생LA갈비 2kg,<br>55,000원.</h3>
+      <p>마트 1kg 값으로, 여기선 2kg 삽니다.</p>
+      <div class="urgency">이 가격, 현재 입고분 한정입니다.</div>
+      <button class="cta-button">지금 바로 주문하기</button>
+      <div class="cta-footer">무료배송 | 당일발송 | 7일 반품 보장 | 만점 리뷰 5.0/5</div>
+    </div>
+  </div>
+
+  <!-- ═══════ 부록 ═══════ -->
+  <div class="zone-label" style="background: var(--charcoal);">
+    부록
+    <span>검수 결과 · A/B 테스트 · 법적 표기</span>
+  </div>
+
+  <div class="appendix">
+    <h2>검수 결과</h2>
+    <div class="check-score">9/9 항목 PASS — 100점</div>
+    <table class="check-table">
+      <thead>
+        <tr>
+          <th>항목</th>
+          <th>결과</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>카피 톤앤매너 일관성 (구어체)</td><td class="pass">✅ PASS</td></tr>
+        <tr><td>전략→카피→비주얼 논리적 흐름</td><td class="pass">✅ PASS</td></tr>
+        <tr><td>첫 화면 3초 내 핵심 고민 언급</td><td class="pass">✅ PASS</td></tr>
+        <tr><td>효과 증명 데이터/리뷰 3개+</td><td class="pass">✅ PASS</td></tr>
+        <tr><td>경쟁 대비 차별점 명확</td><td class="pass">✅ PASS</td></tr>
+        <tr><td>"지금 사야 하는 이유" 구체적</td><td class="pass">✅ PASS</td></tr>
+        <tr><td>환불/교환 안전망 배치</td><td class="pass">✅ PASS</td></tr>
+        <tr><td>CTA 2~3회 노출</td><td class="pass">✅ PASS</td></tr>
+        <tr><td>법적 표기사항 포함</td><td class="pass">✅ PASS</td></tr>
+      </tbody>
+    </table>
+
+    <h3>A/B 테스트 제안</h3>
+    <div class="faq-item" style="background: var(--white);">
+      <div class="faq-q">테스트 1: ZONE 1 헤드라인</div>
+      <div class="faq-a">A안: "비계 빼고, 살코기만 2kg" vs B안: "마트 1kg 값으로 2kg 삽니다"<br>측정: 첫 화면 이탈률</div>
+    </div>
+    <div class="faq-item" style="background: var(--white);">
+      <div class="faq-q">테스트 2: CTA 문구</div>
+      <div class="faq-a">A안: "55,000원에 2kg 받아보기" vs B안: "지금 주문하면 내일 도착!"<br>측정: CTA 클릭률</div>
+    </div>
+    <div class="faq-item" style="background: var(--white);">
+      <div class="faq-q">테스트 3: ZONE 2 공감 방식</div>
+      <div class="faq-a">A안: 체크리스트 + 손실 금액 vs B안: 타사 불만 리뷰 인용<br>측정: ZONE 2→3 스크롤 전환율</div>
+    </div>
+
+    <h3>법적 필수 표기</h3>
+    <p style="font-size:12px; color: var(--warm-gray); line-height: 1.8;">
+      식품 유형: 식육(소갈비) | 원산지: 멕시코산 | 내용량: 2kg | 보관: 냉장 0~5°C |
+      교환/반품: 배송완료 후 7일 이내 | 불량 시 배송비 판매자 부담 |
+      판매: 포맨마켓 | 유통기한: 포장 라벨 참조
+    </p>
+  </div>
+
+  <div class="footer-spacer"></div>
+</div>
+
+<!-- 스티키 CTA -->
+<div class="sticky-cta">
+  <div class="sticky-price">
+    <span style="text-decoration: line-through; font-size: 11px; color: #999;">65,000원</span>
+    <strong>55,000원</strong>
+  </div>
+  <button class="sticky-btn">구매하기</button>
+</div>
+
+<script>
+function copyPrompt(btn) {
+  const promptBox = btn.parentElement;
+  const text = promptBox.textContent.replace('📋 복사', '').trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✅ 복사됨!';
+    setTimeout(() => { btn.textContent = '📋 복사'; }, 2000);
+  }).catch(() => {
+    // 폴백: 텍스트 선택
+    const range = document.createRange();
+    range.selectNodeContents(promptBox);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    btn.textContent = '📋 선택됨';
+    setTimeout(() => { btn.textContent = '📋 복사'; }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>
