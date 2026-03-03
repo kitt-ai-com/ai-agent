@@ -1,0 +1,586 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1008" height="2104" viewBox="0 0 1008 2104">
+  <defs>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+    <filter id="shadow-sm" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000000" flood-opacity="0.06"/>
+    </filter>
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0D274D"/>
+      <stop offset="100%" stop-color="#1E40AF"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="1008" height="2104" fill="#FFFFFF"/>
+
+
+  <!-- 헤더 -->
+  <rect x="0" y="0" width="1008" height="120" fill="url(#headerGrad)"/>
+  <rect x="0" y="0" width="4" height="120" fill="#60A5FA"/>
+  <text x="60" y="45" font-family="Arial, sans-serif" font-size="14" fill="#60A5FA" font-weight="600">SYSTEM MENU STRUCTURE</text>
+  <text x="60" y="80" font-family="Arial, sans-serif" font-size="28" fill="#FFFFFF" font-weight="700">대건로지온 스마트 배차 관리 시스템 — 전체 메뉴 구조도</text>
+  <text x="60" y="105" font-family="Arial, sans-serif" font-size="13" fill="#60A5FA">9개 대메뉴 · 27개 하위 그룹 · 85+ 세부 기능</text>
+
+
+  <!-- 루트 타이틀 바 -->
+  <rect x="0" y="120" width="1008" height="80" fill="#EFF6FF"/>
+  <rect x="324" y="135" width="360" height="50" rx="25" fill="#1E40AF" filter="url(#shadow)"/>
+  <text x="504" y="167" font-family="Arial, sans-serif" font-size="16" fill="#FFFFFF" font-weight="700" text-anchor="middle">📊  대건로지온 배차 관리 시스템</text>
+
+  <line x1="504" y1="185" x2="504" y2="210" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="504" y1="210" x2="200" y2="210" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="200" y1="210" x2="200" y2="220" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="504" y1="210" x2="504" y2="210" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="504" y1="210" x2="504" y2="220" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="504" y1="210" x2="808" y2="210" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="808" y1="210" x2="808" y2="220" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <!-- 대시보드 -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="224" width="280" height="236" rx="8" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="60" y="224" width="280" height="4" rx="8" fill="#1E40AF"/>
+    <rect x="60" y="226" width="280" height="2" fill="#1E40AF"/>
+  </g>
+
+  <circle cx="88" cy="256" r="18" fill="#1E40AF"/>
+  <text x="88" y="262" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle">📊</text>
+  <text x="116" y="261" font-family="Arial, sans-serif" font-size="15" fill="#0D274D" font-weight="700">대시보드</text>
+  <line x1="72" y1="280" x2="328" y2="280" stroke="#D1D5DB" stroke-width="1"/>
+
+  <circle cx="82" cy="294" r="3" fill="#60A5FA"/>
+  <text x="94" y="298" font-family="Arial, sans-serif" font-size="12" fill="#6B7280">오늘의 배차 현황</text>
+
+  <circle cx="82" cy="320" r="3" fill="#60A5FA"/>
+  <text x="94" y="324" font-family="Arial, sans-serif" font-size="12" fill="#6B7280">플랫폼별 이용 통계</text>
+
+  <circle cx="82" cy="346" r="3" fill="#60A5FA"/>
+  <text x="94" y="350" font-family="Arial, sans-serif" font-size="12" fill="#6B7280">고객사 현황</text>
+
+  <circle cx="82" cy="372" r="3" fill="#60A5FA"/>
+  <text x="94" y="376" font-family="Arial, sans-serif" font-size="12" fill="#6B7280">견적서 발행 현황</text>
+
+  <circle cx="82" cy="398" r="3" fill="#60A5FA"/>
+  <text x="94" y="402" font-family="Arial, sans-serif" font-size="12" fill="#6B7280">AI 챗봇 활용도</text>
+
+  <!-- 배차 관리 -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="484" width="280" height="564" rx="8" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="60" y="484" width="280" height="4" rx="8" fill="#2563EB"/>
+    <rect x="60" y="486" width="280" height="2" fill="#2563EB"/>
+  </g>
+
+  <circle cx="88" cy="516" r="18" fill="#2563EB"/>
+  <text x="88" y="522" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle">🚚</text>
+  <text x="116" y="521" font-family="Arial, sans-serif" font-size="15" fill="#0D274D" font-weight="700">배차 관리</text>
+  <line x1="72" y1="540" x2="328" y2="540" stroke="#D1D5DB" stroke-width="1"/>
+
+  <rect x="72" y="550" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="72" y="550" width="3" height="26" rx="1" fill="#2563EB"/>
+  <text x="84" y="566" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">파일 업로드</text>
+
+  <circle cx="86" cy="588" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="592" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">견적 요청 파일 업로드</text>
+
+  <circle cx="86" cy="612" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="616" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">업로드 파일 목록</text>
+
+  <circle cx="86" cy="636" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="640" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">파일 검색</text>
+
+  <circle cx="86" cy="660" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="664" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">처리 상태 관리</text>
+
+  <rect x="72" y="692" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="72" y="692" width="3" height="26" rx="1" fill="#2563EB"/>
+  <text x="84" y="708" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">4개 플랫폼 조회</text>
+
+  <circle cx="86" cy="730" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="734" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">통합 입력 폼</text>
+
+  <circle cx="86" cy="754" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="758" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">전국24시콜화물</text>
+
+  <circle cx="86" cy="778" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="782" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">화물맨</text>
+
+  <circle cx="86" cy="802" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="806" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">원콜</text>
+
+  <circle cx="86" cy="826" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="830" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">인성데이타</text>
+
+  <circle cx="86" cy="850" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="854" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">실시간 견적 비교</text>
+
+  <rect x="72" y="882" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="72" y="882" width="3" height="26" rx="1" fill="#2563EB"/>
+  <text x="84" y="898" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">견적 비교</text>
+
+  <circle cx="86" cy="920" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="924" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">4개 플랫폼 동시 표시</text>
+
+  <circle cx="86" cy="944" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="948" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">가격 오름차순 정렬</text>
+
+  <circle cx="86" cy="968" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="972" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">조건별 필터링</text>
+
+  <circle cx="86" cy="992" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="996" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">견적 상세 정보</text>
+
+  <!-- 통계/리포트 -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="1072" width="280" height="562" rx="8" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="60" y="1072" width="280" height="4" rx="8" fill="#059669"/>
+    <rect x="60" y="1074" width="280" height="2" fill="#059669"/>
+  </g>
+
+  <circle cx="88" cy="1104" r="18" fill="#059669"/>
+  <text x="88" y="1110" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle">📈</text>
+  <text x="116" y="1109" font-family="Arial, sans-serif" font-size="15" fill="#0D274D" font-weight="700">통계/리포트</text>
+  <line x1="72" y1="1128" x2="328" y2="1128" stroke="#D1D5DB" stroke-width="1"/>
+
+  <rect x="72" y="1138" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="72" y="1138" width="3" height="26" rx="1" fill="#059669"/>
+  <text x="84" y="1154" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">배차 통계</text>
+
+  <circle cx="86" cy="1176" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="1180" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">일별/주별/월별 건수</text>
+
+  <circle cx="86" cy="1200" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="1204" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">플랫폼별 이용 통계</text>
+
+  <circle cx="86" cy="1224" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="1228" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">담당자별 현황</text>
+
+  <rect x="72" y="1256" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="72" y="1256" width="3" height="26" rx="1" fill="#059669"/>
+  <text x="84" y="1272" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">고객사 통계</text>
+
+  <circle cx="86" cy="1294" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="1298" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">고객사별 거래 현황</text>
+
+  <circle cx="86" cy="1318" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="1322" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">등급별 매출 분석</text>
+
+  <circle cx="86" cy="1342" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="1346" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">신규/휴면 추이</text>
+
+  <rect x="72" y="1374" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="72" y="1374" width="3" height="26" rx="1" fill="#059669"/>
+  <text x="84" y="1390" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">견적서 통계</text>
+
+  <circle cx="86" cy="1412" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="1416" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">발행 건수 추이</text>
+
+  <circle cx="86" cy="1436" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="1440" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">승인율 분석</text>
+
+  <circle cx="86" cy="1460" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="1464" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">평균 견적 금액</text>
+
+  <rect x="72" y="1492" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="72" y="1492" width="3" height="26" rx="1" fill="#059669"/>
+  <text x="84" y="1508" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">데이터 내보내기</text>
+
+  <circle cx="86" cy="1530" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="1534" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">Excel 다운로드</text>
+
+  <circle cx="86" cy="1554" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="1558" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">CSV 다운로드</text>
+
+  <circle cx="86" cy="1578" r="2.5" fill="#D1D5DB"/>
+  <text x="96" y="1582" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">PDF 리포트</text>
+
+  <!-- 사용자 관리 -->
+  <g filter="url(#shadow)">
+    <rect x="364" y="224" width="280" height="492" rx="8" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="364" y="224" width="280" height="4" rx="8" fill="#1E40AF"/>
+    <rect x="364" y="226" width="280" height="2" fill="#1E40AF"/>
+  </g>
+
+  <circle cx="392" cy="256" r="18" fill="#1E40AF"/>
+  <text x="392" y="262" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle">👥</text>
+  <text x="420" y="261" font-family="Arial, sans-serif" font-size="15" fill="#0D274D" font-weight="700">사용자 관리</text>
+
+  <rect x="586" y="242" width="46" height="22" rx="11" fill="#EA580C"/>
+  <text x="609" y="257" font-family="Arial, sans-serif" font-size="10" fill="#FFFFFF" font-weight="600" text-anchor="middle">관리자</text>
+  <line x1="376" y1="280" x2="632" y2="280" stroke="#D1D5DB" stroke-width="1"/>
+
+  <rect x="376" y="290" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="376" y="290" width="3" height="26" rx="1" fill="#1E40AF"/>
+  <text x="388" y="306" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">계정 관리</text>
+
+  <circle cx="390" cy="328" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="332" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">직원 계정 목록</text>
+
+  <circle cx="390" cy="352" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="356" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">계정 등록</text>
+
+  <circle cx="390" cy="376" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="380" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">계정 수정/삭제</text>
+
+  <circle cx="390" cy="400" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="404" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">계정 일괄 등록 (CSV)</text>
+
+  <rect x="376" y="432" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="376" y="432" width="3" height="26" rx="1" fill="#1E40AF"/>
+  <text x="388" y="448" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">권한 관리</text>
+
+  <circle cx="390" cy="470" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="474" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">역할 관리 (4단계)</text>
+
+  <circle cx="390" cy="494" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="498" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">메뉴별 접근 권한</text>
+
+  <circle cx="390" cy="518" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="522" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">CRUD 권한 설정</text>
+
+  <circle cx="390" cy="542" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="546" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">데이터 범위 권한</text>
+
+  <rect x="376" y="574" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="376" y="574" width="3" height="26" rx="1" fill="#1E40AF"/>
+  <text x="388" y="590" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">부서 관리</text>
+
+  <circle cx="390" cy="612" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="616" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">부서 목록</text>
+
+  <circle cx="390" cy="636" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="640" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">부서 등록/수정/삭제</text>
+
+  <circle cx="390" cy="660" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="664" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">부서별 권한 설정</text>
+
+  <!-- 견적서 관리 -->
+  <g filter="url(#shadow)">
+    <rect x="364" y="740" width="280" height="658" rx="8" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="364" y="740" width="280" height="4" rx="8" fill="#3B82F6"/>
+    <rect x="364" y="742" width="280" height="2" fill="#3B82F6"/>
+  </g>
+
+  <circle cx="392" cy="772" r="18" fill="#3B82F6"/>
+  <text x="392" y="778" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle">📄</text>
+  <text x="420" y="777" font-family="Arial, sans-serif" font-size="15" fill="#0D274D" font-weight="700">견적서 관리</text>
+  <line x1="376" y1="796" x2="632" y2="796" stroke="#D1D5DB" stroke-width="1"/>
+
+  <rect x="376" y="806" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="376" y="806" width="3" height="26" rx="1" fill="#3B82F6"/>
+  <text x="388" y="822" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">견적서 발행</text>
+
+  <circle cx="390" cy="844" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="848" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">고객사 선택 (CRM)</text>
+
+  <circle cx="390" cy="868" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="872" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">견적 정보 입력</text>
+
+  <circle cx="390" cy="892" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="896" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">템플릿 선택</text>
+
+  <circle cx="390" cy="916" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="920" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">자동 계산</text>
+
+  <circle cx="390" cy="940" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="944" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">PDF 생성</text>
+
+  <circle cx="390" cy="964" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="968" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">이메일 발송</text>
+
+  <rect x="376" y="996" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="376" y="996" width="3" height="26" rx="1" fill="#3B82F6"/>
+  <text x="388" y="1012" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">견적서 목록</text>
+
+  <circle cx="390" cy="1034" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1038" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">전체 견적서 조회</text>
+
+  <circle cx="390" cy="1058" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1062" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">검색 (고객사/번호/날짜)</text>
+
+  <circle cx="390" cy="1082" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1086" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">필터링 (상태/기간)</text>
+
+  <circle cx="390" cy="1106" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1110" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">견적서 재발행</text>
+
+  <rect x="376" y="1138" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="376" y="1138" width="3" height="26" rx="1" fill="#3B82F6"/>
+  <text x="388" y="1154" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">템플릿 관리</text>
+
+  <circle cx="390" cy="1176" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1180" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">기본 템플릿 관리</text>
+
+  <circle cx="390" cy="1200" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1204" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">고객사별 설정</text>
+
+  <circle cx="390" cy="1224" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1228" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">템플릿 미리보기</text>
+
+  <rect x="376" y="1256" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="376" y="1256" width="3" height="26" rx="1" fill="#3B82F6"/>
+  <text x="388" y="1272" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">견적서 이력</text>
+
+  <circle cx="390" cy="1294" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1298" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">발행 이력 조회</text>
+
+  <circle cx="390" cy="1318" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1322" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">승인/거부 상태</text>
+
+  <circle cx="390" cy="1342" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1346" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">계약 전환 추적</text>
+
+  <!-- 감사 로그 -->
+  <g filter="url(#shadow)">
+    <rect x="364" y="1422" width="280" height="562" rx="8" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="364" y="1422" width="280" height="4" rx="8" fill="#6B7280"/>
+    <rect x="364" y="1424" width="280" height="2" fill="#6B7280"/>
+  </g>
+
+  <circle cx="392" cy="1454" r="18" fill="#6B7280"/>
+  <text x="392" y="1460" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle">📋</text>
+  <text x="420" y="1459" font-family="Arial, sans-serif" font-size="15" fill="#0D274D" font-weight="700">감사 로그</text>
+
+  <rect x="586" y="1440" width="46" height="22" rx="11" fill="#EA580C"/>
+  <text x="609" y="1455" font-family="Arial, sans-serif" font-size="10" fill="#FFFFFF" font-weight="600" text-anchor="middle">관리자</text>
+  <line x1="376" y1="1478" x2="632" y2="1478" stroke="#D1D5DB" stroke-width="1"/>
+
+  <rect x="376" y="1488" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="376" y="1488" width="3" height="26" rx="1" fill="#6B7280"/>
+  <text x="388" y="1504" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">로그인 이력</text>
+
+  <circle cx="390" cy="1526" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1530" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">사용자별 기록</text>
+
+  <circle cx="390" cy="1550" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1554" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">IP 주소 추적</text>
+
+  <circle cx="390" cy="1574" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1578" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">실패한 시도</text>
+
+  <rect x="376" y="1606" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="376" y="1606" width="3" height="26" rx="1" fill="#6B7280"/>
+  <text x="388" y="1622" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">데이터 변경 이력</text>
+
+  <circle cx="390" cy="1644" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1648" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">생성/수정/삭제</text>
+
+  <circle cx="390" cy="1668" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1672" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">변경 전/후 데이터</text>
+
+  <circle cx="390" cy="1692" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1696" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">변경한 사용자</text>
+
+  <rect x="376" y="1724" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="376" y="1724" width="3" height="26" rx="1" fill="#6B7280"/>
+  <text x="388" y="1740" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">중요 작업 로그</text>
+
+  <circle cx="390" cy="1762" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1766" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">견적서 발행 기록</text>
+
+  <circle cx="390" cy="1786" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1790" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">고객사 정보 수정</text>
+
+  <circle cx="390" cy="1810" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1814" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">권한 변경 기록</text>
+
+  <rect x="376" y="1842" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="376" y="1842" width="3" height="26" rx="1" fill="#6B7280"/>
+  <text x="388" y="1858" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">로그 분석</text>
+
+  <circle cx="390" cy="1880" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1884" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">사용자별 활동</text>
+
+  <circle cx="390" cy="1904" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1908" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">날짜별/작업별 필터</text>
+
+  <circle cx="390" cy="1928" r="2.5" fill="#D1D5DB"/>
+  <text x="400" y="1932" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">CSV 내보내기</text>
+
+  <!-- 고객사 관리 -->
+  <g filter="url(#shadow)">
+    <rect x="668" y="224" width="280" height="682" rx="8" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="668" y="224" width="280" height="4" rx="8" fill="#2563EB"/>
+    <rect x="668" y="226" width="280" height="2" fill="#2563EB"/>
+  </g>
+
+  <circle cx="696" cy="256" r="18" fill="#2563EB"/>
+  <text x="696" y="262" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle">🏢</text>
+  <text x="724" y="261" font-family="Arial, sans-serif" font-size="15" fill="#0D274D" font-weight="700">고객사 관리</text>
+  <line x1="680" y1="280" x2="936" y2="280" stroke="#D1D5DB" stroke-width="1"/>
+
+  <rect x="680" y="290" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="680" y="290" width="3" height="26" rx="1" fill="#2563EB"/>
+  <text x="692" y="306" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">고객사 목록</text>
+
+  <circle cx="694" cy="328" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="332" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">전체 고객사 조회</text>
+
+  <circle cx="694" cy="352" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="356" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">통합 검색</text>
+
+  <circle cx="694" cy="376" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="380" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">필터링 (등급/상태/태그)</text>
+
+  <circle cx="694" cy="400" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="404" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">정렬 (가나다/거래액)</text>
+
+  <rect x="680" y="432" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="680" y="432" width="3" height="26" rx="1" fill="#2563EB"/>
+  <text x="692" y="448" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">고객사 등록</text>
+
+  <circle cx="694" cy="470" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="474" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">기본 정보 입력</text>
+
+  <circle cx="694" cy="494" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="498" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">주소 검색 (카카오 API)</text>
+
+  <circle cx="694" cy="518" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="522" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">담당자 정보 등록</text>
+
+  <circle cx="694" cy="542" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="546" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">거래 정보 설정</text>
+
+  <rect x="680" y="574" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="680" y="574" width="3" height="26" rx="1" fill="#2563EB"/>
+  <text x="692" y="590" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">고객사 상세</text>
+
+  <circle cx="694" cy="612" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="616" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">기본 정보 조회/수정</text>
+
+  <circle cx="694" cy="636" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="640" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">담당자 관리</text>
+
+  <circle cx="694" cy="660" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="664" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">특이사항 메모</text>
+
+  <circle cx="694" cy="684" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="688" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">파일 첨부</text>
+
+  <circle cx="694" cy="708" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="712" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">거래 이력</text>
+
+  <rect x="680" y="740" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="680" y="740" width="3" height="26" rx="1" fill="#2563EB"/>
+  <text x="692" y="756" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">고객사 대시보드</text>
+
+  <circle cx="694" cy="778" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="782" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">총 고객사 현황</text>
+
+  <circle cx="694" cy="802" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="806" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">등급별 분포</text>
+
+  <circle cx="694" cy="826" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="830" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">신규 고객사</text>
+
+  <circle cx="694" cy="850" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="854" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">거래 TOP 10</text>
+
+  <!-- AI 챗봇 -->
+  <g filter="url(#shadow)">
+    <rect x="668" y="930" width="280" height="350" rx="8" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="668" y="930" width="280" height="4" rx="8" fill="#3B82F6"/>
+    <rect x="668" y="932" width="280" height="2" fill="#3B82F6"/>
+  </g>
+
+  <circle cx="696" cy="962" r="18" fill="#3B82F6"/>
+  <text x="696" y="968" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle">🤖</text>
+  <text x="724" y="967" font-family="Arial, sans-serif" font-size="15" fill="#0D274D" font-weight="700">AI 챗봇</text>
+  <line x1="680" y1="986" x2="936" y2="986" stroke="#D1D5DB" stroke-width="1"/>
+
+  <rect x="680" y="996" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="680" y="996" width="3" height="26" rx="1" fill="#3B82F6"/>
+  <text x="692" y="1012" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">메뉴얼 질의응답</text>
+
+  <circle cx="694" cy="1034" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="1038" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">실시간 채팅</text>
+
+  <circle cx="694" cy="1058" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="1062" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">부서별 필터링</text>
+
+  <circle cx="694" cy="1082" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="1086" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">자주 묻는 질문</text>
+
+  <circle cx="694" cy="1106" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="1110" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">출처 표시</text>
+
+  <rect x="680" y="1138" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="680" y="1138" width="3" height="26" rx="1" fill="#3B82F6"/>
+  <text x="692" y="1154" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">질문 히스토리</text>
+
+  <circle cx="694" cy="1176" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="1180" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">내 질문 내역</text>
+
+  <circle cx="694" cy="1200" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="1204" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">답변 유용성 평가</text>
+
+  <circle cx="694" cy="1224" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="1228" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">인기 질문 TOP 10</text>
+
+  <!-- 시스템 설정 -->
+  <g filter="url(#shadow)">
+    <rect x="668" y="1304" width="280" height="444" rx="8" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="668" y="1304" width="280" height="4" rx="8" fill="#6B7280"/>
+    <rect x="668" y="1306" width="280" height="2" fill="#6B7280"/>
+  </g>
+
+  <circle cx="696" cy="1336" r="18" fill="#6B7280"/>
+  <text x="696" y="1342" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle">⚙️</text>
+  <text x="724" y="1341" font-family="Arial, sans-serif" font-size="15" fill="#0D274D" font-weight="700">시스템 설정</text>
+
+  <rect x="870" y="1322" width="66" height="22" rx="11" fill="#EA580C"/>
+  <text x="903" y="1337" font-family="Arial, sans-serif" font-size="10" fill="#FFFFFF" font-weight="600" text-anchor="middle">슈퍼관리자</text>
+  <line x1="680" y1="1360" x2="936" y2="1360" stroke="#D1D5DB" stroke-width="1"/>
+
+  <rect x="680" y="1370" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="680" y="1370" width="3" height="26" rx="1" fill="#6B7280"/>
+  <text x="692" y="1386" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">환경 설정</text>
+
+  <circle cx="694" cy="1408" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="1412" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">회사 정보 관리</text>
+
+  <circle cx="694" cy="1432" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="1436" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">로고 업로드</text>
+
+  <circle cx="694" cy="1456" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="1460" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">브랜드 컬러</text>
+
+  <rect x="680" y="1488" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="680" y="1488" width="3" height="26" rx="1" fill="#6B7280"/>
+  <text x="692" y="1504" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">API 설정</text>
+
+  <circle cx="694" cy="1526" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="1530" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">ChatGPT API Key</text>
+
+  <circle cx="694" cy="1550" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="1554" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">Gemini API Key</text>
+
+  <circle cx="694" cy="1574" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="1578" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">주소 검색 API</text>
+
+  <rect x="680" y="1606" width="256" height="26" rx="4" fill="#EFF6FF"/>
+  <rect x="680" y="1606" width="3" height="26" rx="1" fill="#6B7280"/>
+  <text x="692" y="1622" font-family="Arial, sans-serif" font-size="11" fill="#1E40AF" font-weight="600">알림 설정</text>
+
+  <circle cx="694" cy="1644" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="1648" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">이메일 알림</text>
+
+  <circle cx="694" cy="1668" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="1672" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">SMS 알림 (선택)</text>
+
+  <circle cx="694" cy="1692" r="2.5" fill="#D1D5DB"/>
+  <text x="704" y="1696" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">알림 템플릿</text>
+
+  <!-- 범례 -->
+  <rect x="0" y="2044" width="1008" height="60" fill="#F3F4F6"/>
+  <text x="60" y="2069" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">
+    <tspan font-weight="600">범례:</tspan>
+    <tspan dx="15">●</tspan><tspan dx="5" fill="#1E40AF">우선순위 1 (사용자/권한/고객사)</tspan>
+    <tspan dx="20">●</tspan><tspan dx="5" fill="#2563EB">핵심 기능 (배차/고객사)</tspan>
+    <tspan dx="20">●</tspan><tspan dx="5" fill="#3B82F6">지원 기능 (견적서/AI)</tspan>
+    <tspan dx="20">●</tspan><tspan dx="5" fill="#059669">분석 (통계/리포트)</tspan>
+    <tspan dx="20">●</tspan><tspan dx="5" fill="#6B7280">관리 (설정/로그)</tspan>
+  </text>
+  <text x="948" y="2069" font-family="Arial, sans-serif" font-size="10" fill="#D1D5DB" text-anchor="end">대건로지온 스마트 배차 관리 시스템 · 2026.03</text>
+
+</svg>
