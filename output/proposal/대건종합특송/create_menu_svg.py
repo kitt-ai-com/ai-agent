@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""대건로지온 메뉴 구조도 SVG 생성 (Figma 임포트용)"""
+"""대건종합특송 메뉴 구조도 SVG 생성 (Figma 임포트용)"""
 
 # ─── 색상 ───
 NAVY = "#0D274D"
@@ -164,7 +164,7 @@ def generate_svg():
   <rect x="0" y="0" width="{total_w}" height="{HEADER_H}" fill="url(#headerGrad)"/>
   <rect x="0" y="0" width="4" height="{HEADER_H}" fill="{BLUE_ACC}"/>
   <text x="{PAGE_PAD}" y="45" font-family="Arial, sans-serif" font-size="14" fill="{BLUE_ACC}" font-weight="600">SYSTEM MENU STRUCTURE</text>
-  <text x="{PAGE_PAD}" y="80" font-family="Arial, sans-serif" font-size="28" fill="{WHITE}" font-weight="700">대건로지온 스마트 배차 관리 시스템 — 전체 메뉴 구조도</text>
+  <text x="{PAGE_PAD}" y="80" font-family="Arial, sans-serif" font-size="28" fill="{WHITE}" font-weight="700">대건종합특송 스마트 배차 관리 시스템 — 전체 메뉴 구조도</text>
   <text x="{PAGE_PAD}" y="105" font-family="Arial, sans-serif" font-size="13" fill="{BLUE_ACC}">9개 대메뉴 · 27개 하위 그룹 · 85+ 세부 기능</text>
 ''')
 
@@ -174,7 +174,7 @@ def generate_svg():
   <!-- 루트 타이틀 바 -->
   <rect x="0" y="{bar_y}" width="{total_w}" height="{TITLE_BAR_H}" fill="{BLUE_BG}"/>
   <rect x="{total_w//2 - 180}" y="{bar_y + 15}" width="360" height="50" rx="25" fill="{BLUE}" filter="url(#shadow)"/>
-  <text x="{total_w//2}" y="{bar_y + 47}" font-family="Arial, sans-serif" font-size="16" fill="{WHITE}" font-weight="700" text-anchor="middle">📊  대건로지온 배차 관리 시스템</text>
+  <text x="{total_w//2}" y="{bar_y + 47}" font-family="Arial, sans-serif" font-size="16" fill="{WHITE}" font-weight="700" text-anchor="middle">📊  대건종합특송 배차 관리 시스템</text>
 ''')
 
     # 연결선 (루트 → 각 열 상단)
@@ -264,7 +264,7 @@ def generate_svg():
     <tspan dx="20">●</tspan><tspan dx="5" fill="{GREEN}">분석 (통계/리포트)</tspan>
     <tspan dx="20">●</tspan><tspan dx="5" fill="{GRAY}">관리 (설정/로그)</tspan>
   </text>
-  <text x="{total_w - PAGE_PAD}" y="{legend_y + 15}" font-family="Arial, sans-serif" font-size="10" fill="{GRAY_LT}" text-anchor="end">대건로지온 스마트 배차 관리 시스템 · 2026.03</text>
+  <text x="{total_w - PAGE_PAD}" y="{legend_y + 15}" font-family="Arial, sans-serif" font-size="10" fill="{GRAY_LT}" text-anchor="end">대건종합특송 스마트 배차 관리 시스템 · 2026.03</text>
 ''')
 
     # ─── SVG 닫기 ───
@@ -275,7 +275,7 @@ def generate_svg():
 
 if __name__ == "__main__":
     svg_content = generate_svg()
-    output_path = "/Users/jasonmac/kitt_agent/ai-agent/output/proposal/대건로지온_메뉴구조도.svg"
+    output_path = "/Users/jasonmac/kitt_agent/ai-agent/output/proposal/대건종합특송_메뉴구조도.svg"
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(svg_content)
     print(f"✅ SVG 메뉴 구조도 생성 완료: {output_path}")

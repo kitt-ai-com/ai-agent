@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""대건로지온 스마트 배차 관리 시스템 - 견적서 프레젠테이션 생성"""
+"""대건종합특송 스마트 배차 관리 시스템 - 견적서 프레젠테이션 생성"""
 
 from pptx import Presentation
 from pptx.util import Inches, Pt, Emu
@@ -178,7 +178,7 @@ def create_presentation():
 
     # 메인 타이틀
     add_text_box(slide, Inches(1), Inches(2.2), Inches(8), Inches(1.2),
-                 "대건로지온", font_size=52, color=WHITE, bold=True)
+                 "대건종합특송", font_size=52, color=WHITE, bold=True)
     add_text_box(slide, Inches(1), Inches(3.4), Inches(10), Inches(0.8),
                  "스마트 배차 관리 시스템 구축 제안서", font_size=32, color=BLUE_ACCENT, bold=False)
 
@@ -836,9 +836,9 @@ def create_presentation():
         images["team"].seek(0)
         slide.shapes.add_picture(images["team"], Inches(8.5), Inches(1.5), Inches(4.5), Inches(2.5))
 
-    # 대건로지온 준비 사항
+    # 대건종합특송 준비 사항
     add_text_box(slide, Inches(0.8), Inches(1.5), Inches(5), Inches(0.4),
-                 "대건로지온 준비 사항", font_size=16, color=BLUE_PRIMARY, bold=True)
+                 "대건종합특송 준비 사항", font_size=16, color=BLUE_PRIMARY, bold=True)
 
     client_items = [
         "조직/권한 정보 (부서 구조, 직원 목록, 권한 요구)",
@@ -904,7 +904,7 @@ def create_presentation():
     add_text_box(slide, Inches(0), Inches(1.8), SW, Inches(0.8),
                  "Thank You", font_size=52, color=WHITE, bold=True, alignment=PP_ALIGN.CENTER)
     add_text_box(slide, Inches(0), Inches(2.8), SW, Inches(0.5),
-                 "대건로지온 스마트 배차 관리 시스템 구축 제안", font_size=20, color=BLUE_ACCENT,
+                 "대건종합특송 스마트 배차 관리 시스템 구축 제안", font_size=20, color=BLUE_ACCENT,
                  alignment=PP_ALIGN.CENTER)
 
     # 구분선
@@ -927,7 +927,7 @@ def create_presentation():
                  "2026년 3월 3일", font_size=12, color=GRAY_LIGHT, alignment=PP_ALIGN.CENTER)
 
     # ─── 저장 ───
-    output_path = "/Users/jasonmac/kitt_agent/ai-agent/output/proposal/대건로지온_견적서_프레젠테이션.pptx"
+    output_path = "/Users/jasonmac/kitt_agent/ai-agent/output/proposal/대건종합특송_견적서_프레젠테이션.pptx"
     prs.save(output_path)
     print(f"\n✅ 프레젠테이션 생성 완료: {output_path}")
     return output_path
