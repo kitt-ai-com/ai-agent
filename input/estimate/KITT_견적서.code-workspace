@@ -1,0 +1,21 @@
+{
+  "folders": [
+    {
+      "name": "📁 KITT 견적서 작업공간",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.formatOnSave": true,
+    "files.readonlyInclude": {
+      "**/templates/**": true
+    },
+    "explorer.fileNesting.enabled": true
+  },
+  "extensions": {
+    "recommendations": [
+      "ritwickdey.liveserver"
+    ]
+  }
+}
