@@ -12,3 +12,9 @@ Thumbs.db
 
 # Office temp files
 ~$*
+
+# Python venv
+.venv/
+
+# Logs
+logs/

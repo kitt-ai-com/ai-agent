@@ -1,0 +1,83 @@
+[
+  {
+    "name": "독점마켓",
+    "ad_account_id": "act_1470829704638491",
+    "currency": "KRW",
+    "csv_dir": "input/meta-ad/독점마켓",
+    "output_dir": "output/meta-ad/독점마켓",
+    "notion_parent_page_id": "",
+    "enabled": true
+  },
+  {
+    "name": "씨앤씨에어코리아",
+    "ad_account_id": "act_988250955232473",
+    "currency": "KRW",
+    "csv_dir": "input/meta-ad/씨앤씨에어코리아",
+    "output_dir": "output/meta-ad/씨앤씨에어코리아",
+    "notion_parent_page_id": "",
+    "enabled": true
+  },
+  {
+    "name": "기순도",
+    "ad_account_id": "act_1253402452347128",
+    "currency": "KRW",
+    "csv_dir": "input/meta-ad/기순도",
+    "output_dir": "output/meta-ad/기순도",
+    "notion_parent_page_id": "",
+    "enabled": true
+  },
+  {
+    "name": "미친특가_카이",
+    "ad_account_id": "act_638456822558812",
+    "currency": "KRW",
+    "csv_dir": "input/meta-ad/미친특가_카이",
+    "output_dir": "output/meta-ad/미친특가_카이",
+    "notion_parent_page_id": "",
+    "enabled": true
+  },
+  {
+    "name": "청담마켓",
+    "ad_account_id": "act_689029827090995",
+    "currency": "KRW",
+    "csv_dir": "input/meta-ad/청담마켓",
+    "output_dir": "output/meta-ad/청담마켓",
+    "notion_parent_page_id": "",
+    "enabled": true
+  },
+  {
+    "name": "리바스인테리어",
+    "ad_account_id": "act_1444197916865265",
+    "currency": "USD",
+    "csv_dir": "input/meta-ad/리바스인테리어",
+    "output_dir": "output/meta-ad/리바스인테리어",
+    "notion_parent_page_id": "",
+    "enabled": true
+  },
+  {
+    "name": "유승범",
+    "ad_account_id": "act_1268510021622986",
+    "currency": "KRW",
+    "csv_dir": "input/meta-ad/유승범",
+    "output_dir": "output/meta-ad/유승범",
+    "notion_parent_page_id": "",
+    "enabled": true
+  },
+  {
+    "name": "에어로웨이",
+    "ad_account_id": "act_1774280606809976",
+    "currency": "USD",
+    "csv_dir": "input/meta-ad/에어로웨이",
+    "output_dir": "output/meta-ad/에어로웨이",
+    "notion_parent_page_id": "",
+    "enabled": true
+  },
+  {
+    "name": "하모아한돈삼겹살",
+    "ad_account_id": "act_1823270061942242",
+    "currency": "KRW",
+    "csv_dir": "input/meta-ad/하모아한돈삼겹살",
+    "output_dir": "output/meta-ad/하모아한돈삼겹살",
+    "notion_parent_page_id": "",
+    "enabled": true
+  }
+]
