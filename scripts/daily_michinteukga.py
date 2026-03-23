@@ -251,9 +251,37 @@ def send_email(d1_summary, w7_summary, dry_run=False):
         return False
 
 
+def upload_to_notion(label, report_dir, dry_run=False):
+    """노션에 리포트 업로드"""
+    upload_script = os.path.join(PROJECT_ROOT, "scripts", "upload_notion_report.js")
+
+    cmd = [
+        "node", upload_script,
+        "--client", CLIENT["name"],
+        "--report-dir", report_dir,
+        "--label", label,
+    ]
+
+    if dry_run:
+        print(f"    [DRY-RUN] 노션 업로드: {CLIENT['name']} {label}")
+        return True
+
+    result = subprocess.run(cmd, capture_output=True, text=True, cwd=PROJECT_ROOT)
+    if result.returncode != 0:
+        print(f"    노션 업로드 실패:")
+        if result.stderr:
+            print(f"    {result.stderr}")
+        return False
+
+    print(result.stdout)
+    return True
+
+
 def main():
     parser = argparse.ArgumentParser(description="미친특가 일일 리포트 (D-1 + 주간)")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--no-email", action="store_true", help="이메일 전송 안함")
+    parser.add_argument("--no-notion", action="store_true", help="노션 업로드 안함")
     args = parser.parse_args()
 
     print("=" * 70)
@@ -282,11 +310,22 @@ def main():
     print(f"  전일(D-1): {'성공' if d1 else '실패'}")
     print(f"  주간(7일): {'성공' if w7 else '실패'}")
 
+    # 노션 업로드
+    if not args.no_notion:
+        print(f"\n{'─' * 70}")
+        print(f"  노션 업로드")
+        print(f"{'─' * 70}")
+        if d1:
+            upload_to_notion("일일", "output/meta-ad/미친특가_카이/일일", args.dry_run)
+        if w7:
+            upload_to_notion("주간", "output/meta-ad/미친특가_카이/주간", args.dry_run)
+
     # 이메일 전송
-    print(f"\n{'─' * 70}")
-    print(f"  이메일 전송")
-    print(f"{'─' * 70}")
-    send_email(d1, w7, args.dry_run)
+    if not args.no_email:
+        print(f"\n{'─' * 70}")
+        print(f"  이메일 전송")
+        print(f"{'─' * 70}")
+        send_email(d1, w7, args.dry_run)
 
 
 if __name__ == "__main__":
