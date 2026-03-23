@@ -37,8 +37,8 @@ jobs:
           EMAIL_TO="${{ secrets.EMAIL_TO }}"
           ENVEOF
 
-      - name: Fetch & Analyze & Email (미친특가)
-        run: python3 scripts/weekly_report.py --fetch --email --client "미친특가_카이" --days 1
+      - name: Daily Report (D-1 + Weekly)
+        run: python3 scripts/daily_michinteukga.py
 
       - name: Upload report as artifact
         if: always()
