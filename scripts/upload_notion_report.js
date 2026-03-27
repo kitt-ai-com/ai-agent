@@ -24,7 +24,8 @@ const fs = require('fs');
 const path = require('path');
 
 const notion = new Client({ auth: process.env.NOTION_TOKEN });
-const PARENT_PAGE_ID = process.env.NOTION_PAGE_ID_MARKETING;
+// 메타광고 리포트는 ROAS 페이지에 업로드
+const PARENT_PAGE_ID = process.env.NOTION_PAGE_ID_ROAS || process.env.NOTION_PAGE_ID_MARKETING;
 const PROJECT_ROOT = path.dirname(__dirname);
 
 // ── 마크다운 → 노션 블록 변환 ──

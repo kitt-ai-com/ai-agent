@@ -75,7 +75,7 @@ def analyze_client(client, start_date, end_date, csv_path):
 
 
 def upload_to_notion(client, start_date, end_date):
-    """노션에 리포트 업로드"""
+    """노션에 리포트 업로드 (ROAS 페이지)"""
     output_dir = PROJECT_ROOT / client['output_dir'] / "weekly"
 
     print(f"\n  📤 [{client['name']}] 노션 업로드 중...")
