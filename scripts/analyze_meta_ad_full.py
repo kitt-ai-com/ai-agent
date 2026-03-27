@@ -142,9 +142,15 @@ def analyze_meta_ads(csv_path, output_dir="output/meta-ad"):
     period_start = df['보고 시작'].min() if '보고 시작' in df.columns else "-"
     period_end = df['보고 종료'].max() if '보고 종료' in df.columns else "-"
 
-    # 활성/비활성 광고 수
-    active_count = len(df[df['광고 게재'] == 'active']) if '광고 게재' in df.columns else 0
-    inactive_count = len(df[df['광고 게재'] != 'active']) if '광고 게재' in df.columns else 0
+    # 활성/비활성 광고 수 (광고 또는 캠페인 레벨 자동 감지)
+    status_col = None
+    if '광고 게재' in df.columns:
+        status_col = '광고 게재'
+    elif '캠페인 게재' in df.columns:
+        status_col = '캠페인 게재'
+
+    active_count = len(df[df[status_col] == 'active']) if status_col else 0
+    inactive_count = len(df[df[status_col] != 'active']) if status_col else 0
 
     print(f"\n📊 전체 성과 요약:")
     print(f"   기간: {period_start} ~ {period_end}")
@@ -164,6 +170,7 @@ def analyze_meta_ads(csv_path, output_dir="output/meta-ad"):
         "avg_ctr": avg_ctr, "avg_cpc": avg_cpc, "avg_cpm": avg_cpm, "avg_cpl": avg_cpl,
         "period_start": period_start, "period_end": period_end,
         "active_count": active_count, "inactive_count": inactive_count,
+        "status_col": status_col,
     }
 
     # 리포트 생성
@@ -206,6 +213,7 @@ def generate_detailed_report(df, output_path, currency, spend_col, stats):
     avg_ctr = stats["avg_ctr"]
     avg_cpc = stats["avg_cpc"]
     avg_cpm = stats["avg_cpm"]
+    status_col = stats.get("status_col", "광고 게재")
 
     # 광고별 성과 분석
     df_active = df.copy()
@@ -228,8 +236,8 @@ def generate_detailed_report(df, output_path, currency, spend_col, stats):
 
     # 절감 가능 금액 계산
     waste_spend = 0
-    if len(worst_ads) > 0:
-        for _, row in worst_ads[worst_ads['광고 게재'] == 'active'].iterrows():
+    if len(worst_ads) > 0 and status_col:
+        for _, row in worst_ads[worst_ads[status_col] == 'active'].iterrows():
             waste_spend += row['지출']
 
     with open(output_path, 'w', encoding='utf-8') as f:
@@ -291,7 +299,8 @@ def generate_detailed_report(df, output_path, currency, spend_col, stats):
             insights.append(f"💡 **리드 {total_leads:.0f}건 확보, 리드당 비용 {fmt_money(avg_cpl, currency)}** — 고성과 광고에 예산 집중 시 CPA 30% 절감 가능")
         elif len(top_ctr) > 0:
             best_ctr_ad = top_ctr.iloc[0]
-            insights.append(f"💡 **최고 CTR 광고: '{best_ctr_ad['광고 이름'][:30]}' ({best_ctr_ad['CTR']:.2f}%)** — 이 소재의 메시지 패턴을 활용한 신규 광고 제작 권장")
+            ad_name_col = '광고 이름' if '광고 이름' in df.columns else '캠페인 이름'
+            insights.append(f"💡 **최고 CTR 광고: '{best_ctr_ad[ad_name_col][:30]}' ({best_ctr_ad['CTR']:.2f}%)** — 이 소재의 메시지 패턴을 활용한 신규 광고 제작 권장")
 
         for i, insight in enumerate(insights[:3], 1):
             f.write(f"{i}. {insight}\n\n")
@@ -307,8 +316,9 @@ def generate_detailed_report(df, output_path, currency, spend_col, stats):
 |------|--------|------|------|------|-----|------|
 """)
         for idx, (_, row) in enumerate(top_spend.iterrows(), 1):
-            status = "✅" if row.get('광고 게재') == 'active' else "❌"
-            name = str(row['광고 이름'])[:25]
+            status = "✅" if status_col and row.get(status_col) == 'active' else "❌"
+            ad_name_col = '광고 이름' if '광고 이름' in df.columns else '캠페인 이름'
+            name = str(row[ad_name_col])[:25]
             f.write(f"| {idx} | {name} | {fmt_money(row['지출'], currency)} | {row['노출수']:,.0f} | {row['클릭']:.0f} | {row['CTR']:.2f}% | {status} |\n")
 
         if len(best_ads) > 0:
@@ -317,8 +327,9 @@ def generate_detailed_report(df, output_path, currency, spend_col, stats):
 
 """)
             for idx, (_, row) in enumerate(best_ads.iterrows(), 1):
-                status = "✅ Active" if row['광고 게재'] == 'active' else "❌ Inactive"
-                f.write(f"""#### {idx}. {row['광고 이름']}
+                status = "✅ Active" if status_col and row[status_col] == 'active' else "❌ Inactive"
+                ad_name_col = '광고 이름' if '광고 이름' in df.columns else '캠페인 이름'
+                f.write(f"""#### {idx}. {row[ad_name_col]}
 - **리드당 비용**: {fmt_money(row['리드당_비용'], currency)}
 - **리드 수**: {row['리드']:.0f}건 | **지출**: {fmt_money(row['지출'], currency)}
 - **CTR**: {row['CTR']:.2f}% | **상태**: {status}
@@ -332,8 +343,9 @@ def generate_detailed_report(df, output_path, currency, spend_col, stats):
 """)
             for idx, (_, row) in enumerate(worst_ads.iterrows(), 1):
                 ratio = f" (평균의 {row['리드당_비용']/avg_cpl:.1f}배)" if avg_cpl > 0 else ""
-                action = "**즉시 중단 권장**" if row['광고 게재'] == 'active' else "이미 중단됨"
-                f.write(f"""#### {idx}. {row['광고 이름']}
+                action = "**즉시 중단 권장**" if status_col and row[status_col] == 'active' else "이미 중단됨"
+                ad_name_col = '광고 이름' if '광고 이름' in df.columns else '캠페인 이름'
+                f.write(f"""#### {idx}. {row[ad_name_col]}
 - **리드당 비용**: {fmt_money(row['리드당_비용'], currency)}{ratio}
 - **리드 수**: {row['리드']:.0f}건 | **지출**: {fmt_money(row['지출'], currency)}
 - **권장 조치**: {action}
@@ -347,9 +359,10 @@ def generate_detailed_report(df, output_path, currency, spend_col, stats):
 
 ### ⚡ 액션 1: 저성과 광고 중단
 """)
-        if len(worst_ads) > 0:
-            for _, row in worst_ads[worst_ads['광고 게재'] == 'active'].iterrows():
-                f.write(f"- ❌ '{row['광고 이름'][:30]}' 중단\n")
+        if len(worst_ads) > 0 and status_col:
+            ad_name_col = '광고 이름' if '광고 이름' in df.columns else '캠페인 이름'
+            for _, row in worst_ads[worst_ads[status_col] == 'active'].iterrows():
+                f.write(f"- ❌ '{row[ad_name_col][:30]}' 중단\n")
             if waste_spend > 0:
                 f.write(f"- **예상 절감**: {fmt_money(waste_spend, currency)}\n")
         else:
@@ -359,12 +372,14 @@ def generate_detailed_report(df, output_path, currency, spend_col, stats):
 ### ⚡ 액션 2: 고성과 광고 예산 증액
 """)
         if len(best_ads) > 0:
+            ad_name_col = '광고 이름' if '광고 이름' in df.columns else '캠페인 이름'
             for _, row in best_ads.head(2).iterrows():
-                f.write(f"- ✅ '{row['광고 이름'][:30]}' 예산 +50% 증액\n")
+                f.write(f"- ✅ '{row[ad_name_col][:30]}' 예산 +50% 증액\n")
             f.write(f"- **예상 효과**: 리드 +30~40% 증가\n")
         else:
+            ad_name_col = '광고 이름' if '광고 이름' in df.columns else '캠페인 이름'
             for _, row in top_ctr.head(2).iterrows() if len(top_ctr) > 0 else []:
-                f.write(f"- ✅ '{row['광고 이름'][:30]}' (CTR {row['CTR']:.2f}%) 예산 증액\n")
+                f.write(f"- ✅ '{row[ad_name_col][:30]}' (CTR {row['CTR']:.2f}%) 예산 증액\n")
 
         f.write(f"""
 ### ⚡ 액션 3: 신규 크리에이티브 제작
@@ -484,6 +499,8 @@ def generate_checklist(df, output_path, currency, spend_col, stats):
     """실행 체크리스트 (실무자용)"""
 
     budget_example = "₩50,000" if currency == "KRW" else "$50"
+    status_col = stats.get("status_col", "광고 게재")
+    ad_name_col = '광고 이름' if '광고 이름' in df.columns else '캠페인 이름'
 
     # 저성과 광고 목록
     df_active = df.copy()
@@ -497,10 +514,11 @@ def generate_checklist(df, output_path, currency, spend_col, stats):
         df_with_leads['리드당_비용'] = df_with_leads['지출'] / df_with_leads['리드']
         worst = df_with_leads.nlargest(3, '리드당_비용')
         best = df_with_leads.nsmallest(2, '리드당_비용')
-        for _, row in worst[worst['광고 게재'] == 'active'].iterrows():
-            stop_ads.append(row['광고 이름'][:30])
+        if status_col:
+            for _, row in worst[worst[status_col] == 'active'].iterrows():
+                stop_ads.append(row[ad_name_col][:30])
         for _, row in best.iterrows():
-            boost_ads.append(row['광고 이름'][:30])
+            boost_ads.append(row[ad_name_col][:30])
 
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(f"""# 메타광고 최적화 실행 체크리스트

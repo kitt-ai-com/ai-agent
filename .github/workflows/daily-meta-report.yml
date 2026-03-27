@@ -1,0 +1,61 @@
+name: Daily Meta Ad Report
+
+on:
+  schedule:
+    # 매일 오전 9시 KST (UTC 0시) - 평일만
+    - cron: '0 0 * * 1-5'
+  workflow_dispatch:  # 수동 실행 가능
+
+jobs:
+  daily-meta-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Python dependencies
+        run: pip install pandas numpy
+
+      - name: Install Node dependencies
+        run: npm install
+
+      - name: Create .env from secrets
+        run: |
+          cat > .env << 'ENVEOF'
+          META_APP_ID="${{ secrets.META_APP_ID }}"
+          META_APP_SECRET="${{ secrets.META_APP_SECRET }}"
+          META_ACCESS_TOKEN="${{ secrets.META_ACCESS_TOKEN }}"
+          NOTION_TOKEN="${{ secrets.NOTION_TOKEN }}"
+          NOTION_PAGE_ID_MARKETING="${{ secrets.NOTION_PAGE_ID_MARKETING }}"
+          ENVEOF
+
+      - name: Run Daily Meta Ad Analysis
+        run: python3 scripts/auto_daily_meta_report.py
+
+      - name: Upload report artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: meta-daily-report-${{ github.run_number }}
+          path: output/meta-ad/*/daily/*.md
+          retention-days: 30
+
+      - name: Commit and push if changes
+        if: success()
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add output/meta-ad/*/daily/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: 일일 메타광고 리포트 업데이트 $(date +'%Y-%m-%d')" && git push)
