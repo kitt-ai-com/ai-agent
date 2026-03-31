@@ -12,7 +12,7 @@ cd /Users/jasonmac/kitt_agent/ai-agent
 source .venv/bin/activate
 
 echo "=== 주간 리포트 배치 시작: $(date) ===" >> "$LOG_FILE" 2>&1
-python3 scripts/weekly_report.py --fetch --email >> "$LOG_FILE" 2>&1
+python3 scripts/weekly_report.py --fetch >> "$LOG_FILE" 2>&1
 echo "=== 배치 종료: $(date) ===" >> "$LOG_FILE" 2>&1
 
 # 30일 이상 된 로그 삭제
