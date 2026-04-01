@@ -46,6 +46,8 @@ GRAPH_API_BASE = f"https://graph.facebook.com/{GRAPH_API_VERSION}"
 # 분석 스크립트가 기대하는 핵심 컬럼: 광고 이름, 광고 게재, 결과, 지출 금액 (USD), 노출, 링크 클릭
 INSIGHT_FIELDS = [
     "ad_name",
+    "campaign_name",
+    "adset_name",
     "impressions",
     "reach",
     "frequency",
@@ -239,6 +241,8 @@ def convert_to_csv(insights, ads_data, date_start, date_end, currency="USD"):
         "보고 시작",
         "보고 종료",
         "광고 이름",
+        "캠페인 이름",
+        "광고 세트 이름",
         "광고 게재",
         "통화",
         "기여 설정",
@@ -270,6 +274,8 @@ def convert_to_csv(insights, ads_data, date_start, date_end, currency="USD"):
     rows = []
     for insight in insights:
         ad_name = insight.get("ad_name", "")
+        campaign_name = insight.get("campaign_name", "-")
+        adset_name = insight.get("adset_name", "-")
         actions = insight.get("actions", [])
         cost_per_actions = insight.get("cost_per_action_type", [])
 
@@ -301,6 +307,8 @@ def convert_to_csv(insights, ads_data, date_start, date_end, currency="USD"):
             date_start,                                          # 보고 시작
             date_end,                                            # 보고 종료
             ad_name,                                             # 광고 이름
+            campaign_name,                                       # 캠페인 이름
+            adset_name,                                          # 광고 세트 이름
             status,                                              # 광고 게재
             cur,                                                 # 통화
             "클릭 후 7일 또는 조회 후 1일",                         # 기여 설정
@@ -352,7 +360,9 @@ def save_csv(headers, rows, output_path):
 def main():
     parser = argparse.ArgumentParser(description="Meta Marketing API 광고 데이터 수집")
     parser.add_argument("--account", type=str, required=True, help="광고 계정 ID (예: act_123456789)")
-    parser.add_argument("--days", type=int, default=7, help="조회 기간 - 최근 N일 (기본: 7)")
+    parser.add_argument("--days", type=int, help="조회 기간 - 최근 N일 (기본: 7, --date-start/--date-end와 함께 사용 불가)")
+    parser.add_argument("--date-start", type=str, help="시작 날짜 (형식: YYYY-MM-DD)")
+    parser.add_argument("--date-end", type=str, help="종료 날짜 (형식: YYYY-MM-DD)")
     parser.add_argument("--output", type=str, help="CSV 출력 디렉토리 (기본: input/meta-ad/)")
     parser.add_argument("--filename", type=str, help="CSV 파일명 (기본: 자동 생성)")
     parser.add_argument("--currency", type=str, default="USD", help="통화 단위 (기본: USD)")
@@ -368,8 +378,18 @@ def main():
     print(f"\n  광고 계정: {args.account}")
 
     # 기간 계산
-    date_end = datetime.now().strftime("%Y-%m-%d")
-    date_start = (datetime.now() - timedelta(days=args.days)).strftime("%Y-%m-%d")
+    if args.date_start and args.date_end:
+        # 명시적 날짜 범위 사용
+        date_start = args.date_start
+        date_end = args.date_end
+    elif args.days:
+        # 최근 N일
+        date_end = datetime.now().strftime("%Y-%m-%d")
+        date_start = (datetime.now() - timedelta(days=args.days)).strftime("%Y-%m-%d")
+    else:
+        # 기본값: 최근 7일
+        date_end = datetime.now().strftime("%Y-%m-%d")
+        date_start = (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d")
 
     # API 호출
     result = fetch_ad_insights(args.account, access_token, date_start, date_end)

@@ -41,17 +41,55 @@ def load_clients():
 
 
 def download_csv_data(client, start_date, end_date):
-    """메타 광고 데이터 다운로드"""
+    """메타 API에서 월간 광고 데이터 다운로드 (실패시 기존 CSV 사용)"""
     csv_dir = PROJECT_ROOT / client['csv_dir']
-    csv_files = list(csv_dir.glob("*.csv"))
+    csv_dir.mkdir(parents=True, exist_ok=True)
 
-    if not csv_files:
-        print(f"  ⚠️  [{client['name']}] CSV 파일 없음")
+    # 월간 데이터 파일명 (예: 리바스인테리어_monthly_202603.csv)
+    month_label = start_date.strftime("%Y%m")
+    csv_filename = f"{client['name']}_monthly_{month_label}.csv"
+    csv_path = csv_dir / csv_filename
+
+    # 이미 다운로드된 월간 파일이 있으면 재사용
+    if csv_path.exists():
+        print(f"  ✅ [{client['name']}] 기존 월간 CSV 사용: {csv_filename}")
+        return csv_path
+
+    print(f"  📥 [{client['name']}] 메타 API에서 데이터 다운로드 중...")
+
+    # 메타 API에서 데이터 다운로드
+    fetch_script = PROJECT_ROOT / "scripts" / "fetch_meta_ads.py"
+
+    cmd = [
+        sys.executable, str(fetch_script),
+        "--account", client['ad_account_id'],
+        "--date-start", start_date.strftime("%Y-%m-%d"),
+        "--date-end", end_date.strftime("%Y-%m-%d"),
+        "--output", str(csv_dir),
+        "--filename", csv_filename,
+        "--currency", client.get('currency', 'USD')
+    ]
+
+    result = subprocess.run(cmd, capture_output=True, text=True, cwd=str(PROJECT_ROOT))
+
+    # API 다운로드 실패시 fallback: 기존 CSV 파일 중 가장 최근 것 사용
+    if result.returncode != 0:
+        print(f"  ⚠️  [{client['name']}] API 다운로드 실패 (토큰 만료 가능성)")
+        csv_files = list(csv_dir.glob("*.csv"))
+        if csv_files:
+            latest_csv = max(csv_files, key=lambda p: p.stat().st_mtime)
+            print(f"  ⚠️  [{client['name']}] 기존 CSV로 대체: {latest_csv.name}")
+            return latest_csv
+        else:
+            print(f"  ❌ [{client['name']}] 사용 가능한 CSV 파일 없음")
+            return None
+
+    if not csv_path.exists():
+        print(f"  ⚠️  [{client['name']}] CSV 파일 생성 안됨")
         return None
 
-    # 가장 최근 파일 사용
-    latest_csv = max(csv_files, key=lambda p: p.stat().st_mtime)
-    return latest_csv
+    print(f"  ✅ [{client['name']}] 데이터 다운로드 완료: {csv_filename}")
+    return csv_path
 
 
 def analyze_client(client, start_date, end_date, csv_path):
