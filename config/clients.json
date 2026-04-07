@@ -24,7 +24,7 @@
     "csv_dir": "input/meta-ad/기순도",
     "output_dir": "output/meta-ad/기순도",
     "notion_parent_page_id": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "name": "미친특가_카이",
@@ -33,7 +33,7 @@
     "csv_dir": "input/meta-ad/미친특가_카이",
     "output_dir": "output/meta-ad/미친특가_카이",
     "notion_parent_page_id": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "name": "청담마켓",
@@ -42,7 +42,7 @@
     "csv_dir": "input/meta-ad/청담마켓",
     "output_dir": "output/meta-ad/청담마켓",
     "notion_parent_page_id": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "name": "리바스인테리어",
@@ -60,7 +60,7 @@
     "csv_dir": "input/meta-ad/유승범",
     "output_dir": "output/meta-ad/유승범",
     "notion_parent_page_id": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "name": "에어로웨이",
@@ -69,7 +69,7 @@
     "csv_dir": "input/meta-ad/에어로웨이",
     "output_dir": "output/meta-ad/에어로웨이",
     "notion_parent_page_id": "",
-    "enabled": true
+    "enabled": false
   },
   {
     "name": "하모아한돈삼겹살",

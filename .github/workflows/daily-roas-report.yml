@@ -1,0 +1,54 @@
+name: Daily ROAS Report
+
+on:
+  schedule:
+    # 매일 오전 9시 KST (UTC 0시) - 전날 리포트
+    - cron: '0 0 * * *'
+  workflow_dispatch:  # 수동 실행 가능
+
+jobs:
+  daily-roas-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Python dependencies
+        run: pip install pandas numpy certifi
+
+      - name: Install Node dependencies
+        run: npm install
+
+      - name: Create .env from secrets
+        run: |
+          cat > .env << 'ENVEOF'
+          META_APP_ID="${{ secrets.META_APP_ID }}"
+          META_APP_SECRET="${{ secrets.META_APP_SECRET }}"
+          META_ACCESS_TOKEN="${{ secrets.META_ACCESS_TOKEN }}"
+          NOTION_TOKEN="${{ secrets.NOTION_TOKEN }}"
+          NOTION_PAGE_ID_ROAS="${{ secrets.NOTION_PAGE_ID_ROAS }}"
+          NOTION_PAGE_ID_MARKETING="${{ secrets.NOTION_PAGE_ID_MARKETING }}"
+          ENVEOF
+
+      - name: Run Daily ROAS Analysis (1 day)
+        run: python3 scripts/daily_roas_analysis.py --days 1 --upload --period "일일"
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: roas-daily-report-${{ github.run_number }}
+          path: output/meta-ad/_roas_daily/*.md
+          retention-days: 30
